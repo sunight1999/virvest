@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Outline : MonoBehaviour
@@ -12,7 +13,13 @@ public class Outline : MonoBehaviour
     void Start()
     {
         outlineRenderer = CreateOutline(outlineMateria, outlineScaleFactor, outlineColor);
-        outlineRenderer.enabled = true;
+        outlineRenderer.enabled = false;
+    }
+
+    void Update()
+    {
+        outlineRenderer.transform.position = transform.position;
+        outlineRenderer.transform.rotation = transform.rotation;
     }
 
     Renderer CreateOutline(Material outlineMat, float scaleFactor, Color color)
@@ -22,14 +29,25 @@ public class Outline : MonoBehaviour
 
         rend.material = outlineMat;
         rend.material.SetColor("_OutlineColor", color);
-        rend.material.SetFloat("_Scale", scaleFactor);
+        rend.material.SetVector("_Scale", transform.localScale + Vector3.one * scaleFactor);
         rend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
 
         outlineObj.GetComponent<Outline>().enabled = false;
         outlineObj.GetComponent<Collider>().enabled = false;
+        outlineObj.GetComponent<Rigidbody>().useGravity = false;
 
         rend.enabled = false;
 
         return rend;
+    }
+
+    public void OnHoverEnter()
+    {
+        outlineRenderer.enabled = true;
+    }
+
+    public void OnHoverExit()
+    {
+        outlineRenderer.enabled = false;
     }
 }
