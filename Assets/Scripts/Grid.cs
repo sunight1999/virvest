@@ -15,7 +15,7 @@ public class Grid : MonoBehaviour
 
     void Start()
     {
-        nodeDiameter = prefab.GetComponent<BoxCollider>().bounds.size.x;
+        nodeDiameter = prefab.GetComponent<BoxCollider>().bounds.size.x; // 오브젝트에 포함된 한 노드당 크기 할당
         gridXSize = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
         gridYSize = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
         GenerateGrid();
@@ -45,7 +45,7 @@ public class Grid : MonoBehaviour
         }
 
         foreach (Node node in grid) 
-            Instantiate(prefab, node.worldPosition, Quaternion.identity, transform).GetComponent<Ground>();
+            Instantiate(prefab, node.worldPosition, Quaternion.identity, transform).GetComponent<Ground>(); // 오브젝트 생성 및 땅 속성 추가
         
     }
     void OnDrawGizmos()
