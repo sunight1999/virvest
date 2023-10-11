@@ -7,6 +7,7 @@ public class Grid : MonoBehaviour
     public LayerMask unwalkableMask;
     public Vector2 gridWorldSize;
     public float nodeRadious;
+    public GameObject prefab;
 
     int gridXSize, gridYSize;
     float nodeDiameter;
@@ -14,10 +15,15 @@ public class Grid : MonoBehaviour
 
     void Start()
     {
-        nodeDiameter = nodeRadious * 2;
+        nodeDiameter = prefab.GetComponent<BoxCollider>().bounds.size.x;
         gridXSize = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
         gridYSize = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
         GenerateGrid();
+    }
+
+    private void Update()
+    {
+        //GenerateGrid();
     }
 
     void GenerateGrid()
@@ -37,10 +43,14 @@ public class Grid : MonoBehaviour
                 grid[x, y] = new Node(worldPoint, walkable);
             }
         }
+
+        foreach (Node node in grid) 
+            Instantiate(prefab, node.worldPosition, Quaternion.identity, transform).GetComponent<Ground>();
+        
     }
     void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 1, gridWorldSize.y));
+        Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, prefab.GetComponent<BoxCollider>().bounds.size.y, gridWorldSize.y));
 
         if (grid != null)
         {
