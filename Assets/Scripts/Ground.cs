@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Ground : MonoBehaviour
 {
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.name == "Sphere") Destroy(gameObject);
+        if (collision.gameObject.name == "PitchFork_Pivot") Destroy(gameObject);
     }
 }
