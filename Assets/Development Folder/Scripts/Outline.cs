@@ -10,6 +10,8 @@ public class Outline : MonoBehaviour
     [SerializeField] private Color outlineColor;
     Renderer outlineRenderer;
 
+    
+
     void Start()
     {
         outlineRenderer = CreateOutline(outlineMateria, outlineScaleFactor, outlineColor);
@@ -29,7 +31,7 @@ public class Outline : MonoBehaviour
 
         rend.material = outlineMat;
         rend.material.SetColor("_OutlineColor", color);
-        rend.material.SetVector("_Scale", transform.localScale + Vector3.one * scaleFactor);
+        rend.material.SetVector("_Scale", outlineObj.transform.localScale = Vector3.one * scaleFactor);
         rend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
 
         outlineObj.GetComponent<Outline>().enabled = false;
