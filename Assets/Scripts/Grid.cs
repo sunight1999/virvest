@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Grid : MonoBehaviour
@@ -44,8 +45,10 @@ public class Grid : MonoBehaviour
             }
         }
 
-        foreach (Node node in grid) 
-            Instantiate(prefab, node.worldPosition, Quaternion.identity, transform).GetComponent<Ground>(); // 오브젝트 생성 및 땅 속성 추가
+        foreach (Node node in grid)
+        {
+            var gameObj = Instantiate(prefab, node.worldPosition, Quaternion.identity, transform);
+        }
         
     }
     void OnDrawGizmos()

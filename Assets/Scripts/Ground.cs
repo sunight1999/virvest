@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class Ground : MonoBehaviour
 {
+    public GameObject prefab;
+    bool isObj = false;
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.name == "PitchFork_Pivot") Destroy(gameObject);
+        gameObject.transform.Find("Soil").gameObject.SetActive(true);
+        /*
+        if (collision.gameObject.name == "PitchFork_BoxCollider")
+        {
+            Instantiate(prefab, transform.position, Quaternion.identity, transform);
+        }*/
     }
 }
