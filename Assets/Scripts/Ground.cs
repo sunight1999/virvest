@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ground : MonoBehaviour
 {
     public GameObject prefab;
+<<<<<<< Updated upstream
 
     // 밭갈게와 상호작용시 필요한 메트리얼 변수
     public Material soilMat;
@@ -15,8 +16,13 @@ public class Ground : MonoBehaviour
         //gameObject.transform.Find("Soil").gameObject.SetActive(true);
         /*
         if (collision.gameObject.name == "PitchFork_BoxCollider")
+=======
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.name == "PitchFork_BoxCollider")
+>>>>>>> Stashed changes
         {
-            Instantiate(prefab, transform.position, Quaternion.identity, transform);
-        }*/
+            gameObject.transform.Find("Soil").gameObject.SetActive(true);
+        }
     }
 }

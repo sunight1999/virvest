@@ -17,8 +17,8 @@ public class Grid : MonoBehaviour
     void Start()
     {
         nodeDiameter = prefab.GetComponent<BoxCollider>().bounds.size.x; // 오브젝트에 포함된 한 노드당 크기 할당
-        gridXSize = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
-        gridYSize = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
+        gridXSize = Mathf.RoundToInt(gridWorldSize.x * nodeDiameter);
+        gridYSize = Mathf.RoundToInt(gridWorldSize.y * nodeDiameter);
         GenerateGrid();
     }
 
@@ -38,7 +38,7 @@ public class Grid : MonoBehaviour
             {
                 Vector3 worldPoint = topLeftNodePosition + 
                     Vector3.right * (x * nodeDiameter + nodeRadious) + 
-                    Vector3.forward * (y * nodeDiameter + nodeRadious);
+                    Vector3.forward * (y * nodeDiameter * 0.8f + nodeRadious);
                 bool walkable = !Physics.CheckSphere(worldPoint, nodeRadious, unwalkableMask);
 
                 grid[x, y] = new Node(worldPoint, walkable);
