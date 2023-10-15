@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Transformers;
 
 public class Outline : MonoBehaviour
 {
@@ -36,6 +38,7 @@ public class Outline : MonoBehaviour
 
         outlineObj.GetComponent<Outline>().enabled = false;
         outlineObj.GetComponent<Collider>().enabled = false;
+        outlineObj.GetComponent<XRGrabInteractable>().enabled = false;
 
         rend.enabled = false;
 
