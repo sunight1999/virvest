@@ -38,7 +38,7 @@ public class Grid : MonoBehaviour
             {
                 Vector3 worldPoint = topLeftNodePosition + 
                     Vector3.right * (x * nodeDiameter + nodeRadious) + 
-                    Vector3.forward * (y * nodeDiameter * 0.8f + nodeRadious * 2f);
+                    Vector3.forward * (y * nodeDiameter * 0.95f + nodeRadious);
                 bool walkable = !Physics.CheckSphere(worldPoint, nodeRadious, unwalkableMask);
 
                 grid[x, y] = new Node(worldPoint, walkable);
