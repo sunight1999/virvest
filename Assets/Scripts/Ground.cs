@@ -8,7 +8,7 @@ public class Ground : MonoBehaviour
     {
         if (collider.gameObject.name == "PitchFork_BoxCollider")
         {
-            gameObject.transform.Find("Soil").gameObject.SetActive(true);
+            gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 }
