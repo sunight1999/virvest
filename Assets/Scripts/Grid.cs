@@ -38,7 +38,7 @@ public class Grid : MonoBehaviour
             {
                 Vector3 worldPoint = topLeftNodePosition + 
                     Vector3.right * (x * nodeDiameter + nodeRadious) + 
-                    Vector3.forward * (y * nodeDiameter * 0.8f + nodeRadious);
+                    Vector3.forward * (y * nodeDiameter * 0.8f + nodeRadious * 2f);
                 bool walkable = !Physics.CheckSphere(worldPoint, nodeRadious, unwalkableMask);
 
                 grid[x, y] = new Node(worldPoint, walkable);
@@ -51,10 +51,11 @@ public class Grid : MonoBehaviour
         }
         
     }
+    
     void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, prefab.GetComponent<BoxCollider>().bounds.size.y, gridWorldSize.y));
-
+        /*
         if (grid != null)
         {
             foreach (Node node in grid)
@@ -62,6 +63,7 @@ public class Grid : MonoBehaviour
                 Gizmos.color = (node.walkable) ? Color.white : Color.red;
                 Gizmos.DrawCube(node.worldPosition, Vector3.one * (nodeDiameter-.1f));
             }
-        }
+        }*/
     }
+    
 }
