@@ -15,12 +15,14 @@ public class Watering : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(transform.rotation.x);
         OnOffParticle();
     }
 
     void OnOffParticle()
     {
-        if (isGrab && (transform.eulerAngles.x < 300 && transform.eulerAngles.x > 270))
+        if (isGrab && (transform.eulerAngles.x < 320 && transform.eulerAngles.x > 250) &&
+            (transform.eulerAngles.y > 0 && transform.eulerAngles.y < 360))
         {
             particleSystem.Play();
         }
