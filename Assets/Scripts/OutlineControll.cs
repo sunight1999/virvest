@@ -14,7 +14,7 @@ public class OutlineControll : MonoBehaviour
 
     public void OnOutline()
     {
-        material.SetFloat("_OutlineWidth", 3);
+        material.SetFloat("_OutlineWidth", GlobalDefines.outlineWidth);
     }
 
     public void OffOutline()
