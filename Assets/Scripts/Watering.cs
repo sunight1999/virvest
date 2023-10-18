@@ -15,7 +15,6 @@ public class Watering : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(transform.rotation.x);
         OnOffParticle();
     }
 
