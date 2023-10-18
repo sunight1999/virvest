@@ -16,14 +16,14 @@ public class ShovelSwing : MonoBehaviour
     void Update()
     {
         float speed = rb.velocity.magnitude;
-        if (speed > 5f && transform.GetChild(1).GetChild(0).childCount > 0)
+        if (speed > 5f && transform.GetChild(0).GetChild(0).childCount > 0)
         {
-            GameObject soil = transform.GetChild(1).GetChild(0).GetChild(0).gameObject;
+            GameObject soil = transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
             soil.gameObject.GetComponent<MeshCollider>().isTrigger = false;
-            soil.AddComponent<Rigidbody>();
+            if(soil.GetComponent<Rigidbody>() == null) soil.AddComponent<Rigidbody>();
             soil.transform.SetParent(null);
             Destroy(soil, 10f);
-            transform.GetChild(1).gameObject.GetComponent<BoxCollider>().enabled = true;
+            transform.GetChild(0).gameObject.GetComponent<BoxCollider>().enabled = true;
         }
     }
 }
