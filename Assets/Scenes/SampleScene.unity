@@ -3765,7 +3765,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1129090205}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 919e39492806b334982b6b84c90dd927, type: 3}
   m_Name: 
@@ -3773,7 +3773,7 @@ MonoBehaviour:
   m_System: {fileID: 1129090209}
   m_TurnSpeed: 60
   m_LeftHandTurnAction:
-    m_UseReference: 0
+    m_UseReference: 1
     m_Action:
       m_Name: Left Hand Turn
       m_Type: 0
@@ -3786,7 +3786,7 @@ MonoBehaviour:
     m_Reference: {fileID: 1010738217276881514, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   m_RightHandTurnAction:
-    m_UseReference: 0
+    m_UseReference: 1
     m_Action:
       m_Name: Right Hand Turn
       m_Type: 0
