@@ -22,8 +22,12 @@ public class ShovelSwing : MonoBehaviour
             soil.gameObject.GetComponent<MeshCollider>().isTrigger = false;
             if(soil.GetComponent<Rigidbody>() == null) soil.AddComponent<Rigidbody>();
             soil.transform.SetParent(null);
-            Destroy(soil, 10f);
+            Destroy(soil, 5f);
             transform.GetChild(0).gameObject.GetComponent<BoxCollider>().enabled = true;
+        }
+        else if(transform.GetChild(0).GetChild(0).childCount > 0)
+        {
+            transform.GetChild(0).gameObject.GetComponent<BoxCollider>().enabled = false;
         }
     }
 }
