@@ -5,29 +5,30 @@ using UnityEngine;
 public class ShovelSwing : MonoBehaviour
 {
     Rigidbody rb;
-
-    float timer = 1;
+    BoxCollider bc;
 
     void Start()
     {
         rb = transform.GetComponent<Rigidbody>();
+        bc = transform.GetChild(0).gameObject.GetComponent<BoxCollider>();
     }
 
-    void Update()
+    private void Update()
     {
         float speed = rb.velocity.magnitude;
-        if (speed > 5f && transform.GetChild(0).GetChild(0).childCount > 0)
+        if (transform.GetChild(0).GetChild(0).childCount == 0) bc.enabled = true;
+        else
         {
-            GameObject soil = transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
-            soil.gameObject.GetComponent<MeshCollider>().isTrigger = false;
-            if(soil.GetComponent<Rigidbody>() == null) soil.AddComponent<Rigidbody>();
-            soil.transform.SetParent(null);
-            Destroy(soil, 5f);
-            transform.GetChild(0).gameObject.GetComponent<BoxCollider>().enabled = true;
-        }
-        else if(transform.GetChild(0).GetChild(0).childCount > 0)
-        {
-            transform.GetChild(0).gameObject.GetComponent<BoxCollider>().enabled = false;
+            if(speed > 5f)
+            {
+                GameObject soil = transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
+                soil.gameObject.GetComponent<MeshCollider>().isTrigger = false;
+                soil.transform.SetParent(null);
+                if (soil.GetComponent<Rigidbody>() == null) soil.AddComponent<Rigidbody>();
+                Destroy(soil, 2f);
+                bc.enabled = true;
+            }
+            else bc.enabled = false;
         }
     }
 }

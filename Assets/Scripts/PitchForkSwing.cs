@@ -29,13 +29,13 @@ public class PitchForkSwing : MonoBehaviour
     void Update()
     {
         float speed = rb.velocity.magnitude;
-        if (isGrab == true && speed > 10 && timer < 0)
+        if (isGrab && speed > 10 && timer < 0)
         {
             pitchForkCol.enabled = true;
             timer = 0.5f;
         }
         timer -= Time.deltaTime;
-        if(timer < 0 || isGrab == false)
+        if(timer < 0 || !isGrab)
         {
             pitchForkCol.enabled = false;
         }
