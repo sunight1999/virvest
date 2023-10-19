@@ -1,29 +1,41 @@
+using Meta.WitAi;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test : MonoBehaviour
+public class PitchForkSwing : MonoBehaviour
 {
     public BoxCollider pitchForkCol;
     Rigidbody rb;
+    bool isGrab;
 
-    float timer = 1;
+    float timer = 0.5f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
+    public void OnGrab()
+    {
+        isGrab=true;
+    }
+
+    public void OffGrab()
+    {
+        isGrab=false;
+    }
+
     void Update()
     {
         float speed = rb.velocity.magnitude;
-        if (speed > 5 && timer < 0)
+        if (isGrab == true && speed > 10 && timer < 0)
         {
             pitchForkCol.enabled = true;
-            timer = 1;
+            timer = 0.5f;
         }
         timer -= Time.deltaTime;
-        if(timer < 0 )
+        if(timer < 0 || isGrab == false)
         {
             pitchForkCol.enabled = false;
         }
