@@ -22,7 +22,7 @@ public class ShovelSwing : MonoBehaviour
             if(speed > 5f)
             {
                 GameObject soil = transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
-                soil.gameObject.GetComponent<MeshCollider>().isTrigger = false;
+                soil.GetComponent<MeshCollider>().isTrigger = false;
                 soil.transform.SetParent(null);
                 if (soil.GetComponent<Rigidbody>() == null) soil.AddComponent<Rigidbody>();
                 Destroy(soil, 2f);

@@ -8,7 +8,7 @@ public class Soil : MonoBehaviour
     {
         if (collider.gameObject.name == "Shovel_Boxcollider")
         {            
-            var shovelPos = collider.gameObject.transform.GetChild(0).transform;
+            var shovelPos = collider.transform.GetChild(0).transform;
             transform.position = shovelPos.position;
             transform.rotation = shovelPos.rotation;
             transform.SetParent(shovelPos);
