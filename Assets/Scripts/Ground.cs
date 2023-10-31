@@ -1,6 +1,9 @@
+using Oculus.Interaction;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
+using static LocomotionTeleport;
 
 public class Ground : MonoBehaviour
 {
@@ -8,7 +11,8 @@ public class Ground : MonoBehaviour
     {
         if (collider.gameObject.name == "PitchFork_BoxCollider")
         {
-            gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(0).gameObject.SetActive(true);
         }
+
     }
 }
