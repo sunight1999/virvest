@@ -3414,7 +3414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5eb9d05da37e0134fbb39849fea30509, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.26
+      value: -7.95
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5eb9d05da37e0134fbb39849fea30509, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3422,7 +3422,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5eb9d05da37e0134fbb39849fea30509, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.89
+      value: -18.14
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5eb9d05da37e0134fbb39849fea30509, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5797,7 +5797,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &528624981
 Transform:
   m_ObjectHideFlags: 0

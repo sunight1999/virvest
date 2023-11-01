@@ -26,7 +26,7 @@ public class PitchForkSwing : MonoBehaviour
         isGrab=false;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         float speed = rb.velocity.magnitude;
         if (isGrab && speed > 10 && timer < 0)
