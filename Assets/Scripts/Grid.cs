@@ -10,6 +10,7 @@ public class Grid : MonoBehaviour
     public float nodeRadious;
     public GameObject prefab;
 
+    private List<GameObject> farmLands;
     int gridXSize, gridYSize;
     float nodeDiameter;
     Node[,] grid;
@@ -19,6 +20,7 @@ public class Grid : MonoBehaviour
         nodeDiameter = prefab.GetComponent<BoxCollider>().bounds.size.x; // 오브젝트에 포함된 한 노드당 크기 할당
         gridXSize = Mathf.RoundToInt(gridWorldSize.x * nodeDiameter);
         gridYSize = Mathf.RoundToInt(gridWorldSize.y * nodeDiameter);
+        farmLands = new List<GameObject>();
         GenerateGrid();
     }
 
@@ -47,7 +49,7 @@ public class Grid : MonoBehaviour
 
         foreach (Node node in grid)
         {
-            var gameObj = Instantiate(prefab, node.worldPosition, Quaternion.identity, transform);
+            farmLands.Add(Instantiate(prefab, node.worldPosition, Quaternion.identity, transform));
         }
         
     }
