@@ -12,7 +12,6 @@ public class Deformation : MonoBehaviour
 
     public Mesh mesh;
     public Vector3[] verticies, modifiedVerts;
-    // Start is called before the first frame update
     public void Start()
     {
         mesh = GetComponentInChildren<MeshFilter>().mesh;
@@ -27,7 +26,6 @@ public class Deformation : MonoBehaviour
         mesh.RecalculateNormals();
     }
 
-    // Update is called once per frame
     public void Update()
     {
         RaycastHit hit;
