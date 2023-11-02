@@ -12,9 +12,9 @@ public class Ground : MonoBehaviour
         {
             transform.GetChild(0).gameObject.SetActive(true);
         }
-
+        
         if(collider.gameObject.name == "Shovel_Boxcollider" 
-            && transform.GetChild(0).gameObject.activeSelf && transform.childCount > 1)
+            && transform.Find("soil_3m_mid"))
         {
             transform.GetChild(1).gameObject.SetActive(true);
             Destroy(transform.GetChild(0).gameObject);
