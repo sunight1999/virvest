@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class PitchForkSwing : MonoBehaviour
 {
+    public FarmManager farmManager;
     public BoxCollider pitchForkCol;
     Rigidbody rb;
-    bool isGrab;
 
     float timer = 0.5f;
 
@@ -16,26 +16,16 @@ public class PitchForkSwing : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    public void OnGrab()
-    {
-        isGrab=true;
-    }
-
-    public void OffGrab()
-    {
-        isGrab=false;
-    }
-
-    void FixedUpdate()
+    void Update()
     {
         float speed = rb.velocity.magnitude;
-        if (isGrab && speed > 10 && timer < 0)
+        if (farmManager.isGrab && speed > 5 && timer < 0)
         {
             pitchForkCol.enabled = true;
-            timer = 0.5f;
+            timer = 0.3f;
         }
         timer -= Time.deltaTime;
-        if(timer < 0 || !isGrab)
+        if(timer < 0 || farmManager.isGrab == false)
         {
             pitchForkCol.enabled = false;
         }

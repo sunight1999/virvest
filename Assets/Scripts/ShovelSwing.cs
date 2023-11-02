@@ -13,7 +13,7 @@ public class ShovelSwing : MonoBehaviour
         bc = transform.GetChild(0).gameObject.GetComponent<BoxCollider>();
     }
 
-    private void Update()
+    void Update()
     {
         float speed = rb.velocity.magnitude;
         if (transform.GetChild(0).GetChild(0).childCount == 0) bc.enabled = true;

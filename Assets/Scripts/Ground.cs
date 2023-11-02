@@ -11,6 +11,7 @@ public class Ground : MonoBehaviour
         if (collider.gameObject.name == "PitchFork_BoxCollider" && transform.childCount > 1)
         {
             transform.GetChild(0).gameObject.SetActive(true);
+            transform.tag = "Sharpen";
         }
         
         if(collider.gameObject.name == "Shovel_Boxcollider" 

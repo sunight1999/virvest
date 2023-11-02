@@ -5,10 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - RoomLight
-  - SamplesInfoPanel
-  - Test
-  - Grid
   - Seedling
+  - Farmland
+  - Sharpen
   layers:
   - Default
   - TransparentFX
