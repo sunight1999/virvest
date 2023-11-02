@@ -8,6 +8,7 @@ TagManager:
   - SamplesInfoPanel
   - Test
   - Grid
+  - Seedling
   layers:
   - Default
   - TransparentFX
