@@ -1,19 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+
 
 public class Deformation : MonoBehaviour
 {
 
-    private Mesh mesh;
-    private MeshCollider meshCol;
-    private Vector3[] verticies, modifiedVerts;
-    private float rad;
-    public float height = 1f;
+    public Mesh mesh;
+    public MeshCollider meshCol;
+    public Vector3[] verticies, modifiedVerts;
+    public float rad;
+    public float height = 1000.1f;
     [Range(0, 68)]
-    public int voidIndexStart = 0;
+    public int voidIndexStart = 60;
     [Range(0, 68)]
-    public int voidIndexEnd = 0;
+    public int voidIndexEnd = 50;
     // Start is called before the first frame update
     public void Start()
     {
@@ -31,5 +33,27 @@ public class Deformation : MonoBehaviour
         mesh.vertices = verticies;
         mesh.RecalculateNormals();
         meshCol.GetComponent<MeshCollider>().sharedMesh = mesh;
+    }
+}
+
+[CanEditMultipleObjects]
+[CustomEditor(typeof(Deformation))]
+
+public class DeformationEdit : Editor
+{
+    private void OnSceneGUI()
+    {
+        Deformation df = (Deformation)target;
+
+        df.Start();
+        for (int i = 0 + df.voidIndexStart; i < df.verticies.Length - df.voidIndexEnd; i++)
+        {
+            df.verticies[i].y = -Mathf.Sin(df.rad * i * Mathf.Deg2Rad) / df.height;
+        }
+        df.mesh.vertices = df.verticies;
+        df.mesh.RecalculateNormals();
+        df.meshCol.GetComponent<MeshCollider>().sharedMesh = df.mesh;
+
+
     }
 }
