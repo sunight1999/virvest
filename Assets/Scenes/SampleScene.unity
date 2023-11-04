@@ -490,7 +490,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.35
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &84335275
 GameObject:
@@ -3033,7 +3033,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 852786448}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ceed0db06c783c4aa5426e17a986ab5, type: 3}
   m_Name: 
@@ -4041,7 +4041,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1080924164}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 0.1, z: 1}
@@ -5202,7 +5202,7 @@ PrefabInstance:
     - target: {fileID: 4512768151715397069, guid: 149fa5a0191f0f446971d1e2b35d2802,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4512768151715750381, guid: 149fa5a0191f0f446971d1e2b35d2802,
         type: 3}
@@ -10360,7 +10360,7 @@ PrefabInstance:
     - target: {fileID: 4512768151715397069, guid: 149fa5a0191f0f446971d1e2b35d2802,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4512768151715750381, guid: 149fa5a0191f0f446971d1e2b35d2802,
         type: 3}
@@ -11763,7 +11763,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2121527365}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.11712396, y: 0.21693969, z: 0.35873294}
