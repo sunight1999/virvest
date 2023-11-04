@@ -14,8 +14,7 @@ public class Ground : MonoBehaviour
             transform.tag = "Sharpen";
         }
         
-        if(collider.gameObject.name == "Shovel_Boxcollider" 
-            && transform.Find("soil_3m_mid"))
+        if(collider.gameObject.name == "Shovel_Boxcollider" && transform.Find("soil_3m_mid"))
         {
             transform.GetChild(1).gameObject.SetActive(true);
             Destroy(transform.GetChild(0).gameObject);
