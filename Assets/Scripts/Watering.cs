@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Watering : MonoBehaviour
 {
+    public FarmManager farmManager;
+
     ParticleSystem particleSystem;
-    bool isGrab;
 
     void Start()
     {
         particleSystem = GetComponent<ParticleSystem>();
-        isGrab = false;
     }
 
     void Update()
@@ -20,7 +20,7 @@ public class Watering : MonoBehaviour
 
     void OnOffParticle()
     {
-        if (isGrab && (transform.eulerAngles.x < 320 && transform.eulerAngles.x > 250) &&
+        if (farmManager.isGrab && (transform.eulerAngles.x < 320 && transform.eulerAngles.x > 250) &&
             (transform.eulerAngles.y > 0 && transform.eulerAngles.y < 360))
         {
             particleSystem.Play();
@@ -31,13 +31,11 @@ public class Watering : MonoBehaviour
         }
     }
 
-    public void OnGrab()
+    void OnParticleCollision(GameObject other)
     {
-        isGrab = true;
-    }
-
-    public void OffGrab()
-    {
-        isGrab = false;
+        if(other.gameObject.tag == "Farmland")
+        {
+            Debug.Log(other.gameObject.name);
+        }
     }
 }

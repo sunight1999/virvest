@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine;
 
 public class PlayerAlmostFarmland : MonoBehaviour
 {
+    public XRDirectInteractor interactor;
+
     public FarmManager farmManager;
 
     public List<GameObject> farmlands;
@@ -13,6 +16,18 @@ public class PlayerAlmostFarmland : MonoBehaviour
     void Update()
     {
         FindAlmostFarmland();
+    }
+
+    int GetHandObjLayer()
+    {
+        // 현재 손에 잡고 있는 오브젝트를 가져옵니다.
+        XRBaseInteractable interactable = interactor.selectTarget;
+        if (interactable.gameObject.tag == "FarmEquipment P")
+            return 9;
+        else if (interactable.gameObject.tag == "FarmEquipment S")
+            return 10;
+        else
+            return 9;
     }
 
     void FindAlmostFarmland()
@@ -29,7 +44,7 @@ public class PlayerAlmostFarmland : MonoBehaviour
                 grid.GetComponent<BoxCollider>().enabled = false;
                 float dis = Vector3.Distance(transform.position, grid.transform.position);
 
-                if(dis < shotDis)
+                if(dis < shotDis && grid.layer == GetHandObjLayer())
                 {
                     farmland = grid;
                     shotDis = dis;

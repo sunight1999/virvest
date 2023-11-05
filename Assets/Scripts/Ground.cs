@@ -10,10 +10,9 @@ public class Ground : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "PitchFork_BoxCollider" && transform.tag == "Farmland")
+        if (other.gameObject.tag == "FarmEquipment P" && transform.gameObject.layer == 9)
         {
             farmManager.plowCount++;
-            Debug.Log(farmManager.plowCount);
             if (farmManager.plowCount > 2 && transform.childCount > 1)
             {
                 Plow();
@@ -21,17 +20,16 @@ public class Ground : MonoBehaviour
             }
             farmManager.pitchForkCol.enabled = false;
         }
-
-        if (other.gameObject.name == "Shovel_BoxCollider" && transform.Find("soil_3m_mid"))
+        else if (other.gameObject.tag == "FarmEquipment S" && transform.Find("soil_3m_mid") && transform.gameObject.layer == 10)
         {
             transform.GetChild(1).gameObject.SetActive(true);
-            Destroy(transform.GetChild(0).gameObject);
+            transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 
     void Plow()
     {
         transform.GetChild(0).gameObject.SetActive(true);
-        transform.tag = "Sharpen";
+        transform.gameObject.layer = 10;
     }
 }
