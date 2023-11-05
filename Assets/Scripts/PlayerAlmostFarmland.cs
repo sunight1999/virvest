@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAlmostFarmland : MonoBehaviour
 {
     public FarmManager farmManager;
+
     public List<GameObject> farmlands;
     public GameObject farmland;
     public float shotDis;

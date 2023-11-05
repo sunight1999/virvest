@@ -6,19 +6,32 @@ using UnityEngine.UIElements;
 
 public class Ground : MonoBehaviour
 {
-    void OnTriggerEnter(Collider collider)
+    public FarmManager farmManager;
+
+    void OnTriggerEnter(Collider other)
     {
-        if (collider.gameObject.name == "PitchFork_BoxCollider" && transform.childCount > 1)
+        if (other.gameObject.name == "PitchFork_BoxCollider" && transform.tag == "Farmland")
         {
-            transform.GetChild(0).gameObject.SetActive(true);
-            transform.tag = "Sharpen";
+            farmManager.plowCount++;
+            Debug.Log(farmManager.plowCount);
+            if (farmManager.plowCount > 2 && transform.childCount > 1)
+            {
+                Plow();
+                farmManager.plowCount = 0;
+            }
+            farmManager.pitchForkCol.enabled = false;
         }
-        
-        if(collider.gameObject.name == "Shovel_Boxcollider" && transform.Find("soil_3m_mid"))
+
+        if (other.gameObject.name == "Shovel_BoxCollider" && transform.Find("soil_3m_mid"))
         {
             transform.GetChild(1).gameObject.SetActive(true);
             Destroy(transform.GetChild(0).gameObject);
         }
+    }
 
+    void Plow()
+    {
+        transform.GetChild(0).gameObject.SetActive(true);
+        transform.tag = "Sharpen";
     }
 }

@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class FarmManager : MonoBehaviour
 {
+    public BoxCollider pitchForkCol;
+
+    public Ground ground;
+
+    public int plowCount;
     public bool isGrab = true;
 
     void Start()

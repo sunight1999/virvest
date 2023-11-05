@@ -9,8 +9,6 @@ public class PitchForkSwing : MonoBehaviour
     public BoxCollider pitchForkCol;
     Rigidbody rb;
 
-    float timer = 0.5f;
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -19,13 +17,11 @@ public class PitchForkSwing : MonoBehaviour
     void Update()
     {
         float speed = rb.velocity.magnitude;
-        if (farmManager.isGrab && speed > 5 && timer < 0)
+        if (farmManager.isGrab == true && speed > 7)
         {
             pitchForkCol.enabled = true;
-            timer = 0.3f;
         }
-        timer -= Time.deltaTime;
-        if(timer < 0 || farmManager.isGrab == false)
+        else if(farmManager.isGrab == false)
         {
             pitchForkCol.enabled = false;
         }
