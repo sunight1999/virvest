@@ -23,7 +23,8 @@ public class Ground : MonoBehaviour
         else if (other.gameObject.tag == "FarmEquipment S" && transform.Find("soil_3m_mid") && transform.gameObject.layer == 10)
         {
             transform.GetChild(1).gameObject.SetActive(true);
-            transform.GetChild(0).gameObject.SetActive(false); // Destroy(transform.GetChild(0).gameObject); 가 아닌 경우 "XRSoketTagInteractor"를 조치할 것
+            //transform.GetChild(0).gameObject.SetActive(false); 
+            Destroy(transform.GetChild(0).gameObject);
         }
     }
 

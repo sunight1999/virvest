@@ -15,7 +15,7 @@ public class XRSoketTagInteractor : XRSocketInteractor
 
     public override bool CanSelect(IXRSelectInteractable interactable)
     {
-        if (interactable.transform.tag == targetTag && transform.parent.parent.childCount < 3) // 수정 요망 코드 
+        if (interactable.transform.tag == targetTag && transform.parent.parent.childCount < 2) // 3이 아닌 2로 수정
             interactable.transform.SetParent(transform.parent.parent, false);
         return base.CanSelect(interactable) && interactable.transform.tag == targetTag;
     }
