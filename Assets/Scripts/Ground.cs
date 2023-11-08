@@ -8,15 +8,18 @@ public class Ground : MonoBehaviour
 {
     public FarmManager farmManager;
 
+    public float moisture; //수분 측정을 위한 변수
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "FarmEquipment P" && transform.gameObject.layer == 9)
         {
             farmManager.plowCount++;
-            if (farmManager.plowCount > 2 && transform.childCount > 1)
+            Debug.Log(farmManager.plowCount);
+            if (farmManager.plowCount > 2)
             {
-                Plow();
                 farmManager.plowCount = 0;
+                Plow();
             }
             farmManager.pitchForkCol.enabled = false;
         }

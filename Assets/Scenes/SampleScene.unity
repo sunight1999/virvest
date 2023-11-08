@@ -1222,7 +1222,7 @@ PrefabInstance:
     - target: {fileID: 3913066122962069306, guid: 1ff086c75c630c04c8b515cddff22a80,
         type: 3}
       propertyPath: m_TagString
-      value: FarmEquipment S
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3913066122962100612, guid: 1ff086c75c630c04c8b515cddff22a80,
         type: 3}
@@ -2635,6 +2635,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pitchForkCol: {fileID: 2121527367}
   plowCount: 0
+  soil: {fileID: 1080924164}
+  gridSoils:
+  - {fileID: 2100000, guid: a4a73c72b8ab02341a0e6129a539a241, type: 2}
+  - {fileID: 2100000, guid: cb80b4b31b6472f45884c1df3b7e0cce, type: 2}
+  - {fileID: 2100000, guid: 4d8f8d06f6dc72f40afb3aa6688d9e14, type: 2}
+  - {fileID: 2100000, guid: 6b5d73af84998d14fb9eacf6c9c7104d, type: 2}
+  - {fileID: 2100000, guid: 1a9ad9b46a871154bb406b4ad1248f0c, type: 2}
+  - {fileID: 2100000, guid: 11d194a7539a74a46900cddfed30c49c, type: 2}
+  - {fileID: 2100000, guid: 0057fc98972efe44eb1ecb8295f9b0d2, type: 2}
+  - {fileID: 2100000, guid: 482f8cf4240879e4fb6a9de6da506f17, type: 2}
+  - {fileID: 2100000, guid: c97dd2c13249ffd429b110ed721484a6, type: 2}
+  - {fileID: 2100000, guid: 2bf8a4f0fdb77c043969a186cc4aa42a, type: 2}
+  - {fileID: 2100000, guid: c2c0b4beb71e851418de875b98049b58, type: 2}
+  - {fileID: 2100000, guid: ff2c36785da45ed48be945493be19ac1, type: 2}
+  - {fileID: 2100000, guid: a3692d298ac71174dbcf052f4e5cce94, type: 2}
+  - {fileID: 2100000, guid: a2c25103bb88c334a8de3fa852647c60, type: 2}
+  - {fileID: 2100000, guid: 6bc0471747cbfb04585868b0983d506a, type: 2}
+  - {fileID: 2100000, guid: 7f66a7fcde56e2a42822ed5c0e4c8193, type: 2}
+  - {fileID: 2100000, guid: f2f6280ee9e977e429a1ada1a887f723, type: 2}
+  - {fileID: 2100000, guid: 01ad9cd20ca3711469e09908e1ed2578, type: 2}
+  - {fileID: 2100000, guid: c337becfb2a15134bad6480cca77210f, type: 2}
+  - {fileID: 2100000, guid: 9a93ae3fef5ef134ab2c808c14bf18b1, type: 2}
+  - {fileID: 2100000, guid: 00f91c3582c97d141adadd76dc79982d, type: 2}
+  - {fileID: 2100000, guid: 771ecdeb71d7dc84195686c54452283d, type: 2}
+  - {fileID: 2100000, guid: 4297382ca8cf078428fb527c0cf0e797, type: 2}
+  - {fileID: 2100000, guid: cdaff4af60ce4ae4393366a4bf085576, type: 2}
+  - {fileID: 2100000, guid: 9b7adfa371f55474aa81763be546947b, type: 2}
   moisture: 0
   ground: {fileID: 1080924165}
   isGrab: 0
@@ -10501,7 +10528,7 @@ PrefabInstance:
     - target: {fileID: 4512768151715397069, guid: 149fa5a0191f0f446971d1e2b35d2802,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4512768151715750381, guid: 149fa5a0191f0f446971d1e2b35d2802,
         type: 3}
@@ -16748,7 +16775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 5eb9d05da37e0134fbb39849fea30509, type: 3}
       propertyPath: m_TagString
-      value: FarmEquipment P
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5eb9d05da37e0134fbb39849fea30509, type: 3}
       propertyPath: m_RootOrder
@@ -16811,57 +16838,57 @@ PrefabInstance:
     - target: {fileID: 1053722028740393502, guid: aef2ac2661cde584caca3de6e5f0a5bb,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1053722028740393502, guid: aef2ac2661cde584caca3de6e5f0a5bb,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1053722028740393502, guid: aef2ac2661cde584caca3de6e5f0a5bb,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1053722028740393502, guid: aef2ac2661cde584caca3de6e5f0a5bb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.04
+      value: 2.95
       objectReference: {fileID: 0}
     - target: {fileID: 1053722028740393502, guid: aef2ac2661cde584caca3de6e5f0a5bb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.43
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 1053722028740393502, guid: aef2ac2661cde584caca3de6e5f0a5bb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3
+      value: 3.32
       objectReference: {fileID: 0}
     - target: {fileID: 1053722028740393502, guid: aef2ac2661cde584caca3de6e5f0a5bb,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.76627105
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1053722028740393502, guid: aef2ac2661cde584caca3de6e5f0a5bb,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.64251757
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1053722028740393502, guid: aef2ac2661cde584caca3de6e5f0a5bb,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1053722028740393502, guid: aef2ac2661cde584caca3de6e5f0a5bb,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1053722028740393502, guid: aef2ac2661cde584caca3de6e5f0a5bb,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -79.96
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1053722028740393502, guid: aef2ac2661cde584caca3de6e5f0a5bb,
         type: 3}

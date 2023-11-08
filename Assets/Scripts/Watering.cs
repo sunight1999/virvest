@@ -6,11 +6,11 @@ public class Watering : MonoBehaviour
 {
     public FarmManager farmManager;
 
-    ParticleSystem particleSystem;
+    ParticleSystem particle;
 
     void Start()
     {
-        particleSystem = GetComponent<ParticleSystem>();
+        particle = GetComponent<ParticleSystem>();
     }
 
     void Update()
@@ -23,19 +23,20 @@ public class Watering : MonoBehaviour
         if (farmManager.isGrab && (transform.eulerAngles.x < 320 && transform.eulerAngles.x > 250) &&
             (transform.eulerAngles.y > 0 && transform.eulerAngles.y < 360))
         {
-            particleSystem.Play();
+            particle.Play();
         }
         else
         {
-            particleSystem.Stop();
+            particle.Stop();
         }
     }
 
     void OnParticleCollision(GameObject other)
     {
-        if(other.gameObject.tag == "Farmland")
+        if(other.layer >= 9)
         {
-            Debug.Log(other.gameObject.name);
+            Debug.Log("...");
+            farmManager.WateringToSoil(other);
         }
     }
 }

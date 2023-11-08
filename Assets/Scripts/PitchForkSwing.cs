@@ -17,7 +17,7 @@ public class PitchForkSwing : MonoBehaviour
     void Update()
     {
         float speed = rb.velocity.magnitude;
-        if (farmManager.isGrab == true && speed > 7)
+        if (farmManager.isGrab == true && speed > 10)
         {
             pitchForkCol.enabled = true;
         }
