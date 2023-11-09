@@ -92,6 +92,7 @@ public class TimeManager : MonoBehaviour
     public void UpdateDay()
     {
         currentTime = currentTime.AddDays(1f);
+        timeText.text = currentTime.ToString(" d") + " day " + currentTime.ToString("HH:mm");
     }
 
     public void StartTime()
