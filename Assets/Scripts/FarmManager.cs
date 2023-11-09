@@ -43,12 +43,11 @@ public class FarmManager : MonoBehaviour
             moisture += Time.deltaTime;
             gridSoilMat.materials[1].color = new Color(255 - moisture, 255 - moisture, 255 - moisture, 255);
         }
-        else if (gridSoilMat.materials.Length == 1 && )
+        else if (gridSoilMat.materials.Length == 1)
         {
             gridSoilMat.materials[1] = gridSoils[gridSoilsIndex];
             gridSoilsIndex++;
         }
-        else
-            return;
+        else return;
     }
 }

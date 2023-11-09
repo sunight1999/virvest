@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TimeManager : MonoBehaviour
 {
@@ -17,6 +18,13 @@ public class TimeManager : MonoBehaviour
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
 
+    public static TimeManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if(Instance == null) Instance = this;
+        DontDestroyOnLoad(this);
+    }
     private void Start()
     {
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(sunriseHour) + TimeSpan.FromDays(1f - DateTime.Today.Day);
@@ -28,8 +36,21 @@ public class TimeManager : MonoBehaviour
 
     private IEnumerator TimeUpdate()
     {
-        while (currentTime.TimeOfDay < sunsetTime)
+
+        while (currentTime.TimeOfDay < sunsetTime && SceneManager.GetActiveScene().buildIndex == 1)
         {
+            if (sunLight == null)
+            {
+                Light[] lights = GameObject.FindObjectsOfType<Light>();
+                foreach (Light light in lights)
+                {
+                    if (light.type == LightType.Directional)
+                    {
+                        sunLight = light;
+                        break;
+                    }
+                }
+            }
             UpdateTimeofDay();
             RotateSun();
             yield return null;
@@ -68,8 +89,17 @@ public class TimeManager : MonoBehaviour
         return difference;
     }
 
-    protected void UpdateDay()
+    public void UpdateDay()
     {
         currentTime = currentTime.AddDays(1f);
+    }
+
+    public void StartTime()
+    {
+        StartCoroutine(TimeUpdate());
+    }
+    public void StopTime()
+    {
+        StopCoroutine(TimeUpdate());
     }
 }

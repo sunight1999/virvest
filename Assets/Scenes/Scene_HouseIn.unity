@@ -2087,6 +2087,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8864348a8f16ecd4c94c26063dc14503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crossFade: {fileID: 0}
+  mainSceneActivationTargets: []
 --- !u!1 &1089812616
 GameObject:
   m_ObjectHideFlags: 0
@@ -2502,7 +2504,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452929790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.47, y: 0.86, z: -2.085}
+  m_LocalPosition: {x: -1.4, y: 1.073, z: -2.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
