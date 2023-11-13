@@ -2662,8 +2662,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 4297382ca8cf078428fb527c0cf0e797, type: 2}
   - {fileID: 2100000, guid: cdaff4af60ce4ae4393366a4bf085576, type: 2}
   - {fileID: 2100000, guid: 9b7adfa371f55474aa81763be546947b, type: 2}
-  moisture: 0
-  ground: {fileID: 1080924165}
   isGrab: 0
 --- !u!1 &708045688
 GameObject:
@@ -9200,6 +9198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   farmManager: {fileID: 699770716}
+  moisture: 0
 --- !u!65 &1080924166
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10515,6 +10514,16 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4512768151713456909, guid: 149fa5a0191f0f446971d1e2b35d2802,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512768151713456909, guid: 149fa5a0191f0f446971d1e2b35d2802,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f58be2cef3185c8498b519cb5b5700c4, type: 2}
     - target: {fileID: 4512768151715397069, guid: 149fa5a0191f0f446971d1e2b35d2802,
         type: 3}
       propertyPath: m_Name

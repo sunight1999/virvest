@@ -38,16 +38,18 @@ public class FarmManager : MonoBehaviour
         float moisture = gridSoil.GetComponentInParent<Ground>().moisture;
         MeshRenderer gridSoilMat = gridSoil.GetComponent<MeshRenderer>();
 
-        if (gridSoilMat.materials.Length > 1 && gridSoilMat.materials[1].color.g > 200)
-        {
-            moisture += Time.deltaTime;
-            gridSoilMat.materials[1].color = new Color(255 - moisture, 255 - moisture, 255 - moisture, 255);
-        }
-        else if (gridSoilMat.materials.Length == 1)
-        {
-            gridSoilMat.materials[1] = gridSoils[gridSoilsIndex];
-            gridSoilsIndex++;
-        }
-        else return;
+        gridSoilMat.materials[1] = gridSoils[0];
+
+        //if (gridSoilMat.materials.Length > 1 && gridSoilMat.materials[1].color.g > 200)
+        //{
+        //    moisture += Time.deltaTime;
+        //    gridSoilMat.materials[1].color = new Color(255 - moisture, 255 - moisture, 255 - moisture, 255);
+        //}
+        //else if (gridSoilMat.materials.Length < 2)
+        //{
+        //    gridSoilMat.materials[1] = gridSoils[gridSoilsIndex];
+        //    gridSoilsIndex++;
+        //}
+        //else return;
     }
 }
