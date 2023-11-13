@@ -41,7 +41,6 @@ public class TimeManager : MonoBehaviour
     }
     private IEnumerator TimeUpdate()
     {
-
         while (currentTime.TimeOfDay < sunsetTime && SceneManager.GetActiveScene().buildIndex == 1)
         {
             UpdateTimeofDay();
