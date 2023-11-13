@@ -22,7 +22,8 @@ public class TimeManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null) Instance = this;
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
         DontDestroyOnLoad(this);
     }
     private void Start()
@@ -34,23 +35,15 @@ public class TimeManager : MonoBehaviour
         StartCoroutine(TimeUpdate());
     }
 
+    private void Update()
+    {
+        print(currentTime.ToString());
+    }
     private IEnumerator TimeUpdate()
     {
 
         while (currentTime.TimeOfDay < sunsetTime && SceneManager.GetActiveScene().buildIndex == 1)
         {
-            if (sunLight == null)
-            {
-                Light[] lights = GameObject.FindObjectsOfType<Light>();
-                foreach (Light light in lights)
-                {
-                    if (light.type == LightType.Directional)
-                    {
-                        sunLight = light;
-                        break;
-                    }
-                }
-            }
             UpdateTimeofDay();
             RotateSun();
             yield return null;
@@ -92,6 +85,7 @@ public class TimeManager : MonoBehaviour
     public void UpdateDay()
     {
         currentTime = currentTime.AddDays(1f);
+        currentTime = DateTime.Now.Date + TimeSpan.FromHours(sunriseHour) + TimeSpan.FromDays(currentTime.Day - DateTime.Today.Day);
         timeText.text = currentTime.ToString(" d") + " day " + currentTime.ToString("HH:mm");
     }
 

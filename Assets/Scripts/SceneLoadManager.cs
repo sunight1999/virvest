@@ -18,11 +18,10 @@ public class SceneLoadManager : MonoBehaviour
             {
                 LoadScene("Scene_HouseIn");
             }
-            //else if (SceneManager.GetActiveScene().buildIndex == 1)
-            //{
-            //    LoadScene("Scene_HouseOut");
-            //    TimeManager.Instance.StartTime();
-            //}
+            else if (SceneManager.GetActiveScene().buildIndex == 0)
+            {
+                LoadScene("Scene_HouseOut");
+            }
         }
     }
 
@@ -43,6 +42,7 @@ public class SceneLoadManager : MonoBehaviour
 
         // 씬이 로드된 다음 ActiveScene으로 설정
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(name));
+        TimeManager.Instance.StartTime();
     }
 
     public void UnloadScene(string name)
