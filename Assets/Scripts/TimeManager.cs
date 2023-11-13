@@ -86,7 +86,8 @@ public class TimeManager : MonoBehaviour
     {
         currentTime = currentTime.AddDays(1f);
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(sunriseHour) + TimeSpan.FromDays(currentTime.Day - DateTime.Today.Day);
-        timeText.text = currentTime.ToString(" d") + " day " + currentTime.ToString("HH:mm");
+        if(timeText != null)
+            timeText.text = currentTime.ToString(" d") + " day " + currentTime.ToString("HH:mm");
     }
 
     public void StartTime()
