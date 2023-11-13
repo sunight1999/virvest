@@ -25,10 +25,9 @@ public class SceneLoadManager : MonoBehaviour
         }
     }
 
-    public void LoadScene(string name, bool isAdditive = false)
+    public void LoadScene(string name)
     {
         //StartCoroutine(TriggerCrossFadeCoroutine());
-
         StartCoroutine(LoadSceneCoroutine(name));
     }
 
@@ -42,7 +41,6 @@ public class SceneLoadManager : MonoBehaviour
 
         // 씬이 로드된 다음 ActiveScene으로 설정
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(name));
-        TimeManager.Instance.StartTime();
     }
 
     public void UnloadScene(string name)
