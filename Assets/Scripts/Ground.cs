@@ -8,6 +8,9 @@ public class Ground : MonoBehaviour
 {
     public FarmManager farmManager;
 
+    public GameObject soil;
+    public GameObject sharpenSoil;
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "FarmEquipment P" && transform.gameObject.layer == 9)
@@ -21,17 +24,18 @@ public class Ground : MonoBehaviour
             }
             farmManager.pitchForkCol.enabled = false;
         }
-        else if (other.gameObject.tag == "FarmEquipment S" && transform.Find("soil_3m_mid") && transform.gameObject.layer == 10)
+        else if (other.gameObject.tag == "FarmEquipment S" && transform.gameObject.layer == 10)
         {
-            transform.GetChild(1).gameObject.SetActive(true);
-            //transform.GetChild(0).gameObject.SetActive(false); 
-            Destroy(transform.GetChild(0).gameObject);
+            sharpenSoil.SetActive(true);
+            soil.SetActive(false);
+            this.gameObject.layer = 11;
+            //Destroy(transform.GetChild(0).gameObject);
         }
     }
 
     void Plow()
     {
-        transform.GetChild(0).gameObject.SetActive(true);
+        soil.SetActive(true);
         transform.gameObject.layer = 10;
     }
 }
