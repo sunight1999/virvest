@@ -9198,7 +9198,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   farmManager: {fileID: 699770716}
-  moisture: 0
 --- !u!65 &1080924166
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10517,7 +10516,7 @@ PrefabInstance:
     - target: {fileID: 4512768151713456909, guid: 149fa5a0191f0f446971d1e2b35d2802,
         type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4512768151713456909, guid: 149fa5a0191f0f446971d1e2b35d2802,
         type: 3}

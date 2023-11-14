@@ -35,21 +35,20 @@ public class FarmManager : MonoBehaviour
 
     public void WateringToSoil(GameObject gridSoil)
     {
-        float moisture = gridSoil.GetComponentInParent<Ground>().moisture;
-        MeshRenderer gridSoilMat = gridSoil.GetComponent<MeshRenderer>();
+        Renderer gridSoilMat = gridSoil.GetComponent<Renderer>();
 
-        gridSoilMat.materials[1] = gridSoils[0];
-
-        //if (gridSoilMat.materials.Length > 1 && gridSoilMat.materials[1].color.g > 200)
-        //{
-        //    moisture += Time.deltaTime;
-        //    gridSoilMat.materials[1].color = new Color(255 - moisture, 255 - moisture, 255 - moisture, 255);
-        //}
-        //else if (gridSoilMat.materials.Length < 2)
-        //{
-        //    gridSoilMat.materials[1] = gridSoils[gridSoilsIndex];
-        //    gridSoilsIndex++;
-        //}
-        //else return;
+        if (gridSoilMat.materials[0].name != "Soil" && gridSoilMat.materials[0].color.g > 0.7)
+        {
+            gridSoilMat.materials[0].color = 
+                new Color(gridSoilMat.materials[0].color.r - Time.deltaTime,
+                gridSoilMat.materials[0].color.g - Time.deltaTime,
+                gridSoilMat.materials[0].color.b - Time.deltaTime, 1);
+        }
+        else if (gridSoilMat.materials[0].name == "Soil")
+        {
+            gridSoilMat.materials = new Material[1] { gridSoils[gridSoilsIndex] };
+            gridSoilsIndex++;
+        }
+        else return;
     }
 }

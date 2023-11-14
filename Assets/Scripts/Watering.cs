@@ -35,7 +35,6 @@ public class Watering : MonoBehaviour
     {
         if(other.layer >= 9)
         {
-            Debug.Log("...");
             farmManager.WateringToSoil(other);
         }
     }

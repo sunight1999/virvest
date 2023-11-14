@@ -8,8 +8,6 @@ public class Ground : MonoBehaviour
 {
     public FarmManager farmManager;
 
-    public float moisture; //수분 측정을 위한 변수
-
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "FarmEquipment P" && transform.gameObject.layer == 9)
