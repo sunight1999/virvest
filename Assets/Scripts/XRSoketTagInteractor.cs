@@ -12,9 +12,9 @@ public class XRSoketTagInteractor : XRSocketInteractor
 
     private void Update()
     {
-        if (seeding != null && IsSelecting(seeding) && seeding.transform.GetComponent<XRGrabInteractable>().enabled)
+        if (seeding != null && IsSelecting(seeding))
         {
-            Invoke("objectFreez", 3f);
+            Invoke("objectFreez", 1.5f);
         }
     }
     public override bool CanHover(IXRHoverInteractable interactable)
@@ -24,7 +24,7 @@ public class XRSoketTagInteractor : XRSocketInteractor
     private void objectFreez()
     {
         seeding.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-        seeding.transform.GetComponent<XRGrabInteractable>().enabled = false;
+        Destroy(seeding.transform.GetComponent<XRGrabInteractable>());
         Destroy(transform.GetComponent<XRSoketTagInteractor>());
     }
 
