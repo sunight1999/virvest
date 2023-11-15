@@ -1,4 +1,5 @@
 using Oculus.Interaction;
+using OculusSampleFramework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +26,7 @@ public class XRSoketTagInteractor : XRSocketInteractor
     {
         seeding.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         Destroy(seeding.transform.GetComponent<XRGrabInteractable>());
+        seeding.transform.SetParent(transform.parent.parent);
         Destroy(transform.GetComponent<XRSoketTagInteractor>());
     }
 
