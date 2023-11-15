@@ -25,7 +25,7 @@ public class TimeManager : MonoBehaviour
         if (Instance == null) Instance = this;
         else
         {
-            TimeManager.Instance.StartTime();
+            Instance.StartTime();
             Destroy(gameObject);
         }
         DontDestroyOnLoad(this);
@@ -55,6 +55,8 @@ public class TimeManager : MonoBehaviour
                     }
                 }
             }
+            if(timeText == null) timeText = GameObject.FindObjectOfType<TextMeshProUGUI>();
+                        
             UpdateTimeofDay();
             RotateSun();
             yield return null;
@@ -103,7 +105,6 @@ public class TimeManager : MonoBehaviour
 
     public void StartTime()
     {
-        print("Ω√¿€");
         StartCoroutine(TimeUpdate());
     }
     public void StopTime()

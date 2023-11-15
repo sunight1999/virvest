@@ -10606,7 +10606,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   farmManager: {fileID: 0}
-  moisture: 0
+  soil: {fileID: 0}
+  sharpenSoil: {fileID: 0}
 --- !u!65 &871856894
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16946,7 +16947,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   farmManager: {fileID: 0}
-  moisture: 0
+  soil: {fileID: 0}
+  sharpenSoil: {fileID: 0}
 --- !u!65 &1344875444
 BoxCollider:
   m_ObjectHideFlags: 0
