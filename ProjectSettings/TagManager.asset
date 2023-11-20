@@ -10,6 +10,7 @@ TagManager:
   - FarmEquipment P
   - FarmEquipment S
   - FarmEquipment W
+  - SupportFixture
   layers:
   - Default
   - TransparentFX

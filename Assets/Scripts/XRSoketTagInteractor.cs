@@ -24,6 +24,7 @@ public class XRSoketTagInteractor : XRSocketInteractor
     }
     private void objectFreez()
     {
+        transform.parent.parent.gameObject.layer = 11;
         seeding.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         Destroy(seeding.transform.GetComponent<XRGrabInteractable>());
         seeding.transform.SetParent(transform.parent.parent);
