@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TimeManager : MonoBehaviour
+public class TimeManager : SingletonMono<TimeManager>
 {
     [SerializeField] private float timeMultiplier;
     [SerializeField] private float sunriseHour;
@@ -18,19 +18,9 @@ public class TimeManager : MonoBehaviour
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
 
-    public static TimeManager Instance { get; private set; }
+    //public static TimeManager Instance { get; private set; }
     public int Day {  get; private set; }
 
-    private void Awake()
-    {
-        if (Instance == null) Instance = this;
-        else
-        {
-            Instance.StartTime();
-            Destroy(gameObject);
-        }
-        //DontDestroyOnLoad(this);
-    }
     private void Start()
     {
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(sunriseHour) + TimeSpan.FromDays(1f - DateTime.Today.Day);

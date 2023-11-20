@@ -1,0 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerStartPoint : SingletonMono<PlayerStartPoint>
+{
+    private static PlayerStartPoint instance;
+    protected override void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+        {
+            Instance.transform.localPosition = this.transform.position;
+            Destroy(gameObject);
+        }
+
+    }
+}

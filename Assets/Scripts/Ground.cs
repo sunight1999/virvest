@@ -1,11 +1,13 @@
 using Oculus.Interaction;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class Ground : MonoBehaviour
 {
+    public static Ground Instance { get; private set; }
     public FarmManager farmManager;
 
     public GameObject soil;
