@@ -16,10 +16,12 @@ public class SceneLoadManager : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().buildIndex == 1)
             {
+                ToggleStatus();
                 LoadScene("Scene_HouseIn");
             }
             else if (SceneManager.GetActiveScene().buildIndex == 0)
             {
+                //ToggleStatus();
                 LoadScene("Scene_HouseOut");
             }
         }
@@ -64,6 +66,7 @@ public class SceneLoadManager : MonoBehaviour
         {
             if (obj != null)
             {
+                //obj.SetActive(!obj.activeSelf);
                 DontDestroyOnLoad(obj);
             }
         }
