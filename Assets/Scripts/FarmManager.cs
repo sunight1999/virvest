@@ -25,7 +25,8 @@ public class FarmManager : MonoBehaviour
 
     void Update()
     {
-        
+        Composting();
+        Debug.Log(compost.transform.eulerAngles);
     }
 
     public void OnGrab()
