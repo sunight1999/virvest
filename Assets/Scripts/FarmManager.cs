@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class FarmManager : MonoBehaviour
 {
+    public GameObject compost;
+    public ParticleSystem compostParticle;
+
+    public GameObject Fertilizer;
+
     public BoxCollider pitchForkCol; //밭갈개의 판정 콜라이더
     public int plowCount; //밭갈개의 땅 갈기 카운터
 
@@ -50,5 +55,15 @@ public class FarmManager : MonoBehaviour
             gridSoilsIndex++;
         }
         else return;
+    }
+
+    public void Composting()
+    {
+        if(isGrab && (compost.transform.eulerAngles.z > 160 && compost.transform.eulerAngles.z < 200))
+        {
+            compostParticle.Play();
+        }
+        else
+            compostParticle.Stop();
     }
 }

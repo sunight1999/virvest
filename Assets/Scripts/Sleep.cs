@@ -7,10 +7,10 @@ public class Sleep : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.name == "XR Origin")
         {
+            print(other.gameObject.name);
             TimeManager.Instance.UpdateDay();
-            print(TimeManager.Instance.Day);
         }
     }
 }

@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TimeManager : SingletonMono<TimeManager>
+public class TimeManager : MonoBehaviour
 {
     [SerializeField] private float timeMultiplier;
     [SerializeField] private float sunriseHour;
@@ -18,19 +18,26 @@ public class TimeManager : SingletonMono<TimeManager>
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
 
-    //public static TimeManager Instance { get; private set; }
-    public int Day {  get; private set; }
+    public static TimeManager Instance { get; private set; }
 
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else
+        {
+            Instance.StartTime();
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(this);
+    }
     private void Start()
     {
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(sunriseHour) + TimeSpan.FromDays(1f - DateTime.Today.Day);
-        Day = currentTime.Day;
 
         sunriseTime = TimeSpan.FromHours(sunriseHour);
         sunsetTime = TimeSpan.FromHours(sunsetHour);
         StartCoroutine(TimeUpdate());
     }
-
 
     private IEnumerator TimeUpdate()
     {
@@ -94,8 +101,6 @@ public class TimeManager : SingletonMono<TimeManager>
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(sunriseHour) + TimeSpan.FromDays(currentTime.Day - DateTime.Today.Day);
         if(timeText != null)
             timeText.text = currentTime.ToString(" d") + " day " + currentTime.ToString("HH:mm");
-        Day = currentTime.Day;
-        SeedingGrowth.Instance.UpdateSeeding();
     }
 
     public void StartTime()

@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoadManager : MonoBehaviour
 {
+
     public Animator crossFade;
+    public GameObject[] mainSceneActivationTargets;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "XR Origin")
         {
-            Grid.Instance.ObjActive();
             if (SceneManager.GetActiveScene().buildIndex == 1)
             {
                 LoadScene("Scene_HouseIn");
@@ -48,6 +49,7 @@ public class SceneLoadManager : MonoBehaviour
 
         SceneManager.UnloadSceneAsync(name);
 
+        ToggleStatus();
     }
 
     IEnumerator TriggerCrossFadeCoroutine()
@@ -56,5 +58,15 @@ public class SceneLoadManager : MonoBehaviour
         yield break;
     }
 
+    void ToggleStatus()
+    {
+        foreach (GameObject obj in mainSceneActivationTargets)
+        {
+            if (obj != null)
+            {
+                DontDestroyOnLoad(obj);
+            }
+        }
+    }
     
 }

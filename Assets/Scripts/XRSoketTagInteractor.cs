@@ -28,7 +28,7 @@ public class XRSoketTagInteractor : XRSocketInteractor
         seeding.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         Destroy(seeding.transform.GetComponent<XRGrabInteractable>());
         seeding.transform.SetParent(transform.parent.parent);
-        Destroy(gameObject);
+        Destroy(transform.GetComponent<XRSoketTagInteractor>());
     }
 
     public override bool CanSelect(IXRSelectInteractable interactable)

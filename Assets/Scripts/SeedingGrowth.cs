@@ -10,13 +10,13 @@ public class SeedingGrowth : SingletonMono<SeedingGrowth>
 
     public void UpdateSeeding()
     {
-        if(TimeManager.Instance.Day == 3 || TimeManager.Instance.Day == 5 || //총 3일차 5일차 8일차 10일차로 각각 단계별로 오브젝트 변경
-           TimeManager.Instance.Day == 8 || TimeManager.Instance.Day == 10)
-        {
-            for (int i = 0; i < transform.childCount; i++) Destroy(transform.GetChild(i).gameObject);
-            seedingStep.RemoveAt(0);
-            Instantiate(seedingStep[0], transform.position, Quaternion.identity, transform).SetActive(false);
-        }
+        //if(TimeManager.Instance.Day == 3 || TimeManager.Instance.Day == 5 || //총 3일차 5일차 8일차 10일차로 각각 단계별로 오브젝트 변경
+        //   TimeManager.Instance.Day == 8 || TimeManager.Instance.Day == 10)
+        //{
+        //    for (int i = 0; i < transform.childCount; i++) Destroy(transform.GetChild(i).gameObject);
+        //    seedingStep.RemoveAt(0);
+        //    Instantiate(seedingStep[0], transform.position, Quaternion.identity, transform).SetActive(false);
+        //}
         
     }
 
