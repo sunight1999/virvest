@@ -17,6 +17,7 @@ public class Compost : MonoBehaviour
         collisionEvents = new List<ParticleCollisionEvent>();
     }
 
+    List<Vector3> tests = new List<Vector3>();
     private void OnParticleCollision(GameObject other)
     {
         if(other.gameObject.tag == "Farmland")
@@ -27,6 +28,9 @@ public class Compost : MonoBehaviour
             {
                 if (farmManager.compostIndex < 10)
                 {
+                    if (collisionEvents[i].intersection.Equals(Vector3.zero))
+                        continue;
+
                     GameObject c = Instantiate(compostPrefab, collisionEvents[i].intersection, Quaternion.identity);
                     farmManager.farmland.composts.Add(c);
                     farmManager.compostIndex++;
@@ -38,6 +42,16 @@ public class Compost : MonoBehaviour
                     return;
                 }
             }
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        foreach (var test in tests)
+        {
+            Vector3 v = (Vector3)test;
+            Gizmos.DrawSphere(v, 0.2f);
         }
     }
 }

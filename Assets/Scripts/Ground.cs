@@ -28,6 +28,7 @@ public class Ground : MonoBehaviour
                 {
                     Destroy(c);
                 }
+                composts.Clear();
             }
             farmManager.pitchForkCol.enabled = false;
         }
