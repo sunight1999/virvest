@@ -22,10 +22,12 @@ public class PlayerAlmostFarmland : MonoBehaviour
     {
         // 현재 손에 잡고 있는 오브젝트를 가져옵니다.
         XRBaseInteractable interactable = interactor.selectTarget;
-        if (interactable.gameObject.tag == "FarmEquipment P")
+        if (interactable.gameObject.tag == "Compost")
             return 9;
-        else if (interactable.gameObject.tag == "FarmEquipment S")
+        else if (interactable.gameObject.tag == "FarmEquipment P")
             return 10;
+        else if(interactable.gameObject.tag == "FarmEquipment S")
+            return 11;
         else
             return 9;
     }
@@ -41,7 +43,8 @@ public class PlayerAlmostFarmland : MonoBehaviour
 
             foreach(GameObject grid in farmlands)
             {
-                grid.GetComponent<BoxCollider>().enabled = false;
+                grid.GetComponents<BoxCollider>()[0].enabled = false;
+                grid.GetComponents<BoxCollider>()[1].enabled = false;
                 float dis = Vector3.Distance(transform.position, grid.transform.position);
 
                 if(dis < shotDis && grid.layer == GetHandObjLayer())
@@ -50,7 +53,9 @@ public class PlayerAlmostFarmland : MonoBehaviour
                     shotDis = dis;
                 }
             }
-            farmland.GetComponent<BoxCollider>().enabled = true;
+            farmland.GetComponents<BoxCollider>()[0].enabled = true;
+            farmland.GetComponents<BoxCollider>()[1].enabled = true;
+            farmManager.farmland = farmland.GetComponent<Ground>();
         }
     }
 }

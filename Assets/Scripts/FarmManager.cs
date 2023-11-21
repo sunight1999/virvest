@@ -6,6 +6,7 @@ public class FarmManager : MonoBehaviour
 {
     public GameObject compost;
     public ParticleSystem compostParticle;
+    public int compostIndex;
 
     public GameObject Fertilizer;
 
@@ -15,6 +16,8 @@ public class FarmManager : MonoBehaviour
     public GameObject soil; // 경작지
     public Material[] gridSoils; //물 주었을 떄 넣을 메트리얼
     int gridSoilsIndex = 0;
+
+    public Ground farmland;
 
     public bool isGrab = true;
 
@@ -26,7 +29,6 @@ public class FarmManager : MonoBehaviour
     void Update()
     {
         Composting();
-        Debug.Log(compost.transform.eulerAngles);
     }
 
     public void OnGrab()

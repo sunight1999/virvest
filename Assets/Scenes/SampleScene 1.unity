@@ -2666,6 +2666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   compost: {fileID: 1571447198}
   compostParticle: {fileID: 1571447203}
+  compostIndex: 0
   Fertilizer: {fileID: 860076557}
   pitchForkCol: {fileID: 2121527367}
   plowCount: 0
@@ -2696,6 +2697,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 4297382ca8cf078428fb527c0cf0e797, type: 2}
   - {fileID: 2100000, guid: cdaff4af60ce4ae4393366a4bf085576, type: 2}
   - {fileID: 2100000, guid: 9b7adfa371f55474aa81763be546947b, type: 2}
+  farmland: {fileID: 0}
   isGrab: 0
 --- !u!1 &708045688
 GameObject:
@@ -3302,7 +3304,7 @@ Transform:
   m_GameObject: {fileID: 860076557}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.85, y: 0.18, z: -1.58}
-  m_LocalScale: {x: 0.1, y: 0.3, z: 0.2}
+  m_LocalScale: {x: 0.05, y: 0.3, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1585038307}
@@ -9303,6 +9305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1080924167}
   - component: {fileID: 1080924166}
+  - component: {fileID: 1080924168}
   - component: {fileID: 1080924165}
   m_Layer: 9
   m_Name: SoilGenerate
@@ -9326,6 +9329,7 @@ MonoBehaviour:
   farmManager: {fileID: 699770716}
   soil: {fileID: 993208575}
   sharpenSoil: {fileID: 1137847836}
+  composts: []
 --- !u!65 &1080924166
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9347,7 +9351,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1080924164}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.93, y: 0.114, z: 8.57}
+  m_LocalPosition: {x: 11.93, y: 0.139, z: 8.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9356,6 +9360,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1080924168
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080924164}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.1, z: 1}
+  m_Center: {x: 0, y: 0.03, z: 0}
 --- !u!1 &1110183587
 GameObject:
   m_ObjectHideFlags: 0
@@ -10654,7 +10671,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1534961856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.52, y: 0.25, z: 1.5}
+  m_LocalPosition: {x: 6.52, y: 0.07, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10678,9 +10695,10 @@ GameObject:
   - component: {fileID: 1571447201}
   - component: {fileID: 1571447200}
   - component: {fileID: 1571447199}
+  - component: {fileID: 1571447208}
   m_Layer: 0
   m_Name: Compost
-  m_TagString: Untagged
+  m_TagString: Compost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14576,11 +14594,10 @@ ParticleSystem:
     type: 1
     collisionMode: 0
     colliderForce: 0
-    multiplyColliderForceByParticleSize: 0
+    multiplyColliderForceByParticleSize: 1
     multiplyColliderForceByParticleSpeed: 0
     multiplyColliderForceByCollisionAngle: 0
-    m_Planes:
-    - {fileID: 0}
+    m_Planes: []
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
@@ -15771,14 +15788,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571447198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.16, y: 0.18, z: -1.58}
-  m_LocalScale: {x: 0.1, y: 0.3, z: 0.2}
+  m_LocalPosition: {x: 2.67, y: 0.36, z: -0.6}
+  m_LocalScale: {x: 0.05, y: 0.3, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1127787942}
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1571447208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571447198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f4d027392f313049ab47151045be3d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  farmManager: {fileID: 699770716}
+  compostPrefab: {fileID: 6173135501037858054, guid: 884ecbeb6b1146c4c99fb74900956b94,
+    type: 3}
 --- !u!1001 &1581072419
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21123,7 +21155,7 @@ PrefabInstance:
     - target: {fileID: 4512768151715397069, guid: 149fa5a0191f0f446971d1e2b35d2802,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4512768151715750381, guid: 149fa5a0191f0f446971d1e2b35d2802,
         type: 3}
@@ -21158,7 +21190,7 @@ PrefabInstance:
     - target: {fileID: 4512768151715750381, guid: 149fa5a0191f0f446971d1e2b35d2802,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.475
       objectReference: {fileID: 0}
     - target: {fileID: 4512768151715750381, guid: 149fa5a0191f0f446971d1e2b35d2802,
         type: 3}
@@ -22304,7 +22336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 5eb9d05da37e0134fbb39849fea30509, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: FarmEquipment P
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5eb9d05da37e0134fbb39849fea30509, type: 3}
       propertyPath: m_RootOrder

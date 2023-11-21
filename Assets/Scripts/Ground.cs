@@ -1,6 +1,7 @@
 using Oculus.Interaction;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -11,9 +12,11 @@ public class Ground : MonoBehaviour
     public GameObject soil;
     public GameObject sharpenSoil;
 
+    public List<GameObject> composts = new List<GameObject>();
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "FarmEquipment P" && transform.gameObject.layer == 9)
+        if (other == farmManager.pitchForkCol && transform.gameObject.layer == 10)
         {
             farmManager.plowCount++;
             Debug.Log(farmManager.plowCount);
@@ -21,14 +24,18 @@ public class Ground : MonoBehaviour
             {
                 farmManager.plowCount = 0;
                 Plow();
+                foreach (GameObject c in composts)
+                {
+                    Destroy(c);
+                }
             }
             farmManager.pitchForkCol.enabled = false;
         }
-        else if (other.gameObject.tag == "FarmEquipment S" && transform.gameObject.layer == 10)
+        else if (other.gameObject.tag == "FarmEquipment S" && transform.gameObject.layer == 11)
         {
             sharpenSoil.SetActive(true);
             soil.SetActive(false);
-            this.gameObject.layer = 11;
+            this.gameObject.layer = 12;
             //Destroy(transform.GetChild(0).gameObject);
         }
     }
@@ -36,6 +43,6 @@ public class Ground : MonoBehaviour
     void Plow()
     {
         soil.SetActive(true);
-        transform.gameObject.layer = 10;
+        transform.gameObject.layer = 11;
     }
 }

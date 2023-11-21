@@ -11,6 +11,8 @@ TagManager:
   - FarmEquipment S
   - FarmEquipment W
   - SupportFixture
+  - Compost
+  - Compost Prefab
   layers:
   - Default
   - TransparentFX
@@ -22,9 +24,9 @@ TagManager:
   - Prop
   - Floor
   - Soil
+  - CompostSoil
   - SharpenSoil
   - SeedSoil
-  - 
   - 
   - 
   - 
