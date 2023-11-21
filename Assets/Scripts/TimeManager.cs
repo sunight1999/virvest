@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TimeManager : MonoBehaviour
+public class TimeManager : SingletonMono<TimeManager>
 {
     [SerializeField] private float timeMultiplier;
     [SerializeField] private float sunriseHour;
@@ -18,26 +18,19 @@ public class TimeManager : MonoBehaviour
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
 
-    public static TimeManager Instance { get; private set; }
+    //public static TimeManager Instance { get; private set; }
+    public int Day { get; private set; }
 
-    private void Awake()
-    {
-        if (Instance == null) Instance = this;
-        else
-        {
-            Instance.StartTime();
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(this);
-    }
     private void Start()
     {
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(sunriseHour) + TimeSpan.FromDays(1f - DateTime.Today.Day);
+        Day = currentTime.Day;
 
         sunriseTime = TimeSpan.FromHours(sunriseHour);
         sunsetTime = TimeSpan.FromHours(sunsetHour);
         StartCoroutine(TimeUpdate());
     }
+
 
     private IEnumerator TimeUpdate()
     {
@@ -55,8 +48,8 @@ public class TimeManager : MonoBehaviour
                     }
                 }
             }
-            if(timeText == null) timeText = GameObject.FindObjectOfType<TextMeshProUGUI>();
-                        
+            if (timeText == null) timeText = GameObject.FindObjectOfType<TextMeshProUGUI>();
+
             UpdateTimeofDay();
             RotateSun();
             yield return null;
@@ -99,8 +92,10 @@ public class TimeManager : MonoBehaviour
     {
         currentTime = currentTime.AddDays(1f);
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(sunriseHour) + TimeSpan.FromDays(currentTime.Day - DateTime.Today.Day);
-        if(timeText != null)
+        if (timeText != null)
             timeText.text = currentTime.ToString(" d") + " day " + currentTime.ToString("HH:mm");
+        Day = currentTime.Day;
+        Grid.Instance.UpdateSeeding();
     }
 
     public void StartTime()

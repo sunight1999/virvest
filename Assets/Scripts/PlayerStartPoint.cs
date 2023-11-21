@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerStartPoint : SingletonMono<PlayerStartPoint>
 {
-    private static PlayerStartPoint instance;
+    public static PlayerStartPoint instance;
     protected override void Awake()
     {
         if (instance == null)

@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,9 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoadManager : MonoBehaviour
 {
-
     public Animator crossFade;
-    public GameObject[] mainSceneActivationTargets;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,6 +20,7 @@ public class SceneLoadManager : MonoBehaviour
             {
                 LoadScene("Scene_HouseOut");
             }
+            Grid.Instance.ObjActive();
         }
     }
 
@@ -35,11 +34,11 @@ public class SceneLoadManager : MonoBehaviour
     {
         AsyncOperation async = SceneManager.LoadSceneAsync(name);
 
-        // ¾ÀÀÌ ¿ÏÀüÈ÷ ·ÎµåµÉ ¶§±îÁö ´ë±â
+        // ì”¬ì´ ì™„ì „íˆ ë¡œë“œë  ë•Œê¹Œì§€ ëŒ€ê¸°
         while (!async.isDone)
             yield return new WaitForEndOfFrame();
 
-        // ¾ÀÀÌ ·ÎµåµÈ ´ÙÀ½ ActiveSceneÀ¸·Î ¼³Á¤
+        // ì”¬ì´ ë¡œë“œëœ ë‹¤ìŒ ActiveSceneìœ¼ë¡œ ì„¤ì •
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(name));
     }
 
@@ -49,7 +48,6 @@ public class SceneLoadManager : MonoBehaviour
 
         SceneManager.UnloadSceneAsync(name);
 
-        ToggleStatus();
     }
 
     IEnumerator TriggerCrossFadeCoroutine()
@@ -58,15 +56,5 @@ public class SceneLoadManager : MonoBehaviour
         yield break;
     }
 
-    void ToggleStatus()
-    {
-        foreach (GameObject obj in mainSceneActivationTargets)
-        {
-            if (obj != null)
-            {
-                DontDestroyOnLoad(obj);
-            }
-        }
-    }
-    
+
 }

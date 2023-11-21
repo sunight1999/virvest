@@ -9,8 +9,8 @@ public class Sleep : MonoBehaviour
     {
         if (other.gameObject.name == "XR Origin")
         {
-            print(other.gameObject.name);
             TimeManager.Instance.UpdateDay();
+            print(TimeManager.Instance.Day);
         }
     }
 }
