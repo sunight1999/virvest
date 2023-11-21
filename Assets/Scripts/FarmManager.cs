@@ -11,23 +11,27 @@ public class FarmManager : MonoBehaviour
     public GameObject Fertilizer;
 
     public BoxCollider pitchForkCol; //밭갈개의 판정 콜라이더
-    public int plowCount; //밭갈개의 땅 갈기 카운터
+    [SerializeField] public int plowCount; //밭갈개의 땅 갈기 카운터
 
     public GameObject soil; // 경작지
     public Material[] gridSoils; //물 주었을 떄 넣을 메트리얼
-    int gridSoilsIndex = 0;
+    [SerializeField] int gridSoilsIndex = 0;
 
-    public Ground farmland;
+    [SerializeField] public Ground farmland;
+    public bool isReadyComposting;
 
     public bool isGrab = true;
 
     void Start()
     {
         isGrab = false;
+        isReadyComposting = true;
     }
 
     void Update()
     {
+        Debug.Log(isReadyComposting);
+        Debug.Log(compost.transform);
         Composting();
     }
 
@@ -62,9 +66,13 @@ public class FarmManager : MonoBehaviour
 
     public void Composting()
     {
-        if(isGrab && (compost.transform.eulerAngles.z > 160 && compost.transform.eulerAngles.z < 200))
+        if(isReadyComposting && isGrab && (compost.transform.eulerAngles.z > 160 && compost.transform.eulerAngles.z < 200))
         {
             compostParticle.Play();
+        }
+        else if(isReadyComposting == false && !(compost.transform.eulerAngles.z > 160 && compost.transform.eulerAngles.z < 200))
+        {
+            isReadyComposting = true;
         }
         else
             compostParticle.Stop();

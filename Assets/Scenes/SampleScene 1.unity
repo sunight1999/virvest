@@ -2697,6 +2697,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 4297382ca8cf078428fb527c0cf0e797, type: 2}
   - {fileID: 2100000, guid: cdaff4af60ce4ae4393366a4bf085576, type: 2}
   - {fileID: 2100000, guid: 9b7adfa371f55474aa81763be546947b, type: 2}
+  gridSoilsIndex: 0
   farmland: {fileID: 0}
   isGrab: 0
 --- !u!1 &708045688
@@ -9520,7 +9521,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1.1176
-  m_Radius: 0.2
+  m_Radius: 0.1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08

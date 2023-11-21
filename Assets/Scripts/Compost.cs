@@ -29,7 +29,7 @@ public class Compost : MonoBehaviour
                 if (farmManager.compostIndex < 10)
                 {
                     if (collisionEvents[i].intersection.Equals(Vector3.zero))
-                        continue;
+                        return;
 
                     GameObject c = Instantiate(compostPrefab, collisionEvents[i].intersection, Quaternion.identity);
                     farmManager.farmland.composts.Add(c);
@@ -39,6 +39,7 @@ public class Compost : MonoBehaviour
                 {
                     farmManager.compostIndex = 0;
                     other.layer = 10;
+                    farmManager.isReadyComposting = false;
                     return;
                 }
             }
