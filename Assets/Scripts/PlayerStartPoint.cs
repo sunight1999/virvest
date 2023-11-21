@@ -11,7 +11,7 @@ public class PlayerStartPoint : SingletonMono<PlayerStartPoint>
             instance = this;
         else
         {
-            Instance.transform.localPosition = this.transform.localPosition;
+            Instance.transform.GetChild(0).GetChild(0).transform.position = this.transform.position;
             Destroy(gameObject);
         }
 
