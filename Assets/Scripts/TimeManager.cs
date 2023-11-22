@@ -62,7 +62,6 @@ public class TimeManager : MonoBehaviour
                     }
                 }
             }
-            //if (timeText == null) timeText = (TextMeshProUGUI)transform.Find("HandWatch(TMP)").gameObject;
 
             UpdateTimeofDay();
             RotateSun();
@@ -73,10 +72,6 @@ public class TimeManager : MonoBehaviour
     private void UpdateTimeofDay()
     {
         currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier);
-        //if (timeText != null)
-        //{
-        //    timeText.text = currentTime.ToString(" d") + " day " + currentTime.ToString("HH:mm");
-        //}
     }
 
     private void RotateSun()
@@ -106,8 +101,6 @@ public class TimeManager : MonoBehaviour
     {
         currentTime = currentTime.AddDays(1f);
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(sunriseHour) + TimeSpan.FromDays(currentTime.Day - DateTime.Today.Day);
-        //if (timeText != null)
-        //    timeText.text = currentTime.ToString(" d") + " day " + currentTime.ToString("HH:mm");
         Day = currentTime.Day;
         Grid.Instance.UpdateSeeding();
     }
