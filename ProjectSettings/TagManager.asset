@@ -13,6 +13,7 @@ TagManager:
   - SupportFixture
   - Compost
   - Compost Prefab
+  - Openable
   layers:
   - Default
   - TransparentFX
