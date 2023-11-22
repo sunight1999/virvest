@@ -28,7 +28,7 @@ public class TimeManager : SingletonMono<TimeManager>
 
         sunriseTime = TimeSpan.FromHours(sunriseHour);
         sunsetTime = TimeSpan.FromHours(sunsetHour);
-        StartCoroutine(TimeUpdate());
+        Instance.StartTime();
     }
 
 

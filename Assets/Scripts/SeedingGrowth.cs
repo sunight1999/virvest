@@ -8,7 +8,7 @@ public class SeedingGrowth : MonoBehaviour
     [Tooltip("각 모종의 성장 5단계를 다음 리스트에 할당할 것. 피봇까지 검토할 것.")]
     [SerializeField] private List<GameObject> seedingStep;
 
-    private int seedDay = 0;
+    private int seedDay = 1;
 
 
     public void UpdateSeeding()
