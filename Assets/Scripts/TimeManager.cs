@@ -6,20 +6,34 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TimeManager : SingletonMono<TimeManager>
+public class TimeManager : MonoBehaviour
 {
     [SerializeField] private float timeMultiplier;
     [SerializeField] private float sunriseHour;
     [SerializeField] private float sunsetHour;
     [SerializeField] private Light sunLight;
-    [SerializeField] private TextMeshProUGUI timeText;
+    //[SerializeField] private TextMeshProUGUI timeText;
 
     private DateTime currentTime;
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
 
-    //public static TimeManager Instance { get; private set; }
+    public static TimeManager Instance { get; private set; }
     public int Day { get; private set; }
+    public bool isDestroyProtected;
+    private void Awake()
+    {
+        if(Instance != null)
+        {
+            Instance.StartTime();
+            Destroy(gameObject);
+        } 
+        else Instance = this;
+
+        if (isDestroyProtected)
+            DontDestroyOnLoad(gameObject);
+    }
+
 
     private void Start()
     {
@@ -48,7 +62,7 @@ public class TimeManager : SingletonMono<TimeManager>
                     }
                 }
             }
-            if (timeText == null) timeText = GameObject.FindObjectOfType<TextMeshProUGUI>();
+            //if (timeText == null) timeText = (TextMeshProUGUI)transform.Find("HandWatch(TMP)").gameObject;
 
             UpdateTimeofDay();
             RotateSun();
@@ -59,10 +73,10 @@ public class TimeManager : SingletonMono<TimeManager>
     private void UpdateTimeofDay()
     {
         currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier);
-        if (timeText != null)
-        {
-            timeText.text = currentTime.ToString(" d") + " day " + currentTime.ToString("HH:mm");
-        }
+        //if (timeText != null)
+        //{
+        //    timeText.text = currentTime.ToString(" d") + " day " + currentTime.ToString("HH:mm");
+        //}
     }
 
     private void RotateSun()
@@ -92,12 +106,15 @@ public class TimeManager : SingletonMono<TimeManager>
     {
         currentTime = currentTime.AddDays(1f);
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(sunriseHour) + TimeSpan.FromDays(currentTime.Day - DateTime.Today.Day);
-        if (timeText != null)
-            timeText.text = currentTime.ToString(" d") + " day " + currentTime.ToString("HH:mm");
+        //if (timeText != null)
+        //    timeText.text = currentTime.ToString(" d") + " day " + currentTime.ToString("HH:mm");
         Day = currentTime.Day;
         Grid.Instance.UpdateSeeding();
     }
-
+    public string TimeWatch()
+    {
+        return currentTime.ToString(" d") + " day " + currentTime.ToString("HH:mm");
+    }
     public void StartTime()
     {
         StartCoroutine(TimeUpdate());

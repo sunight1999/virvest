@@ -19,6 +19,7 @@ public class SceneLoadManager : MonoBehaviour
             else if (SceneManager.GetActiveScene().buildIndex == 0)
             {
                 LoadScene("Scene_HouseOut");
+                TimeManager.Instance.StartTime();
             }
             Grid.Instance.ObjActive();
         }
@@ -37,7 +38,6 @@ public class SceneLoadManager : MonoBehaviour
         // 씬이 완전히 로드될 때까지 대기
         while (!async.isDone)
             yield return new WaitForEndOfFrame();
-
         // 씬이 로드된 다음 ActiveScene으로 설정
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(name));
     }
