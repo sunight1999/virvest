@@ -11,7 +11,7 @@ public class Grid : SingletonMono<Grid>
     [SerializeField] private GameObject prefab;
 
     float thikness;
-    private List<GameObject> farmLands;
+    private HashSet<GameObject> farmLands;
     int gridXSize, gridYSize;
     float nodeDiameter;
     Node[,] grid;
@@ -22,7 +22,7 @@ public class Grid : SingletonMono<Grid>
         gridXSize = Mathf.RoundToInt(gridWorldSize.x * nodeDiameter);
         gridYSize = Mathf.RoundToInt(gridWorldSize.y * nodeDiameter);
         thikness = prefab.GetComponent<BoxCollider>().bounds.size.y;
-        farmLands = new List<GameObject>();
+        farmLands = new HashSet<GameObject>();
         GenerateGrid();
     }
 

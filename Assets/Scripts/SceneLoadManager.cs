@@ -10,7 +10,7 @@ public class SceneLoadManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "XR Origin")
+        if (other.gameObject.tag == "Player")
         {
             if (SceneManager.GetActiveScene().buildIndex == 1)
             {
