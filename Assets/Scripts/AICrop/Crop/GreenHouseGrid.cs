@@ -17,10 +17,11 @@ public class GreenHouseGrid : SingletonMono<GreenHouseGrid>
     
     public Node[,] Grid { get; private set; }
 
-    void Start()
+    protected override void Awake()
     {
+        base.Awake();
+
         nodeDiameter = soilPrefab.GetComponent<BoxCollider>().bounds.size.x; // 오브젝트에 포함된 한 노드당 크기 할당
-        Debug.Log(nodeDiameter);
         gridXSize = Mathf.RoundToInt(gridWorldSize.x * nodeDiameter);
         gridYSize = Mathf.RoundToInt(gridWorldSize.y * nodeDiameter);
         thikness = soilPrefab.GetComponent<BoxCollider>().bounds.size.y;
@@ -37,9 +38,6 @@ public class GreenHouseGrid : SingletonMono<GreenHouseGrid>
     {
         Grid = new Node[gridXSize, gridYSize];
         Vector3 topLeftNodePosition = transform.position - (Vector3.right * gridWorldSize.x / 2f) - (Vector3.forward * gridWorldSize.y / 2f);
-
-        Debug.Log(gridXSize);
-        Debug.Log(gridYSize);
 
         for (int x = 0; x < gridXSize; x++)
         {
