@@ -20,6 +20,7 @@ public class Compost : MonoBehaviour
     List<Vector3> tests = new List<Vector3>();
     private void OnParticleCollision(GameObject other)
     {
+        //TimeManager.Instance.Day
         if(other.gameObject.tag == "Farmland")
         {
             ParticlePhysicsExtensions.GetCollisionEvents(particle, other, collisionEvents);

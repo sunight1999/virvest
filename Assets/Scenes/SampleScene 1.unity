@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 62726759}
   - component: {fileID: 62726760}
   - component: {fileID: 62726761}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: soil_Soket_Seedling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1240,7 +1240,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 334531708}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: SoketAttach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1520,7 +1520,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 437613708}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: SoketAttach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10659,9 +10659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a21aaa1995a7f904992892fe7c065eca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unwalkableMask:
-    serializedVersion: 2
-    m_Bits: 0
+  isDestroyProtected: 0
   gridWorldSize: {x: 5, y: 5}
   nodeRadious: 0.5
   prefab: {fileID: 1080924164}
@@ -15853,7 +15851,7 @@ PrefabInstance:
     - target: {fileID: 4512768151715397069, guid: 149fa5a0191f0f446971d1e2b35d2802,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4512768151715397069, guid: 149fa5a0191f0f446971d1e2b35d2802,
         type: 3}
@@ -15978,7 +15976,7 @@ GameObject:
   - component: {fileID: 1635534361}
   - component: {fileID: 1635534366}
   - component: {fileID: 1635534365}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SupportFixture
   m_TagString: SupportFixture
   m_Icon: {fileID: 0}
@@ -21305,7 +21303,7 @@ PrefabInstance:
     - target: {fileID: 4512768151715397069, guid: 149fa5a0191f0f446971d1e2b35d2802,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4512768151715397069, guid: 149fa5a0191f0f446971d1e2b35d2802,
         type: 3}
@@ -21458,7 +21456,7 @@ GameObject:
   - component: {fileID: 1722185675}
   - component: {fileID: 1722185676}
   - component: {fileID: 1722185677}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: soil_Soket_SupportFixture
   m_TagString: Untagged
   m_Icon: {fileID: 0}

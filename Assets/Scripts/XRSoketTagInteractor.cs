@@ -19,17 +19,15 @@ public class XRSoketTagInteractor : XRSocketInteractor
         }
         else if(hand != null && transform.parent.parent.gameObject.layer == 12 && IsSelecting(hand))
         {
+            transform.parent.parent.gameObject.layer = 13;
             Invoke("objectFreezSupportFixture", 0.5f);
         }
     }
     public override bool CanHover(IXRHoverInteractable interactable)
     {
-        //if(hand.transform.gameObject.tag == "Seeding" && transform.parent.parent.gameObject.layer == 12)
-        //    return base.CanHover(interactable) && interactable.transform.tag == targetTag;
-        //else if (hand.transform.gameObject.tag == "SupportFixture" && transform.parent.parent.gameObject.layer == 13)
-        //    return base.CanHover(interactable) && interactable.transform.tag == targetTag;
-        //return false;
-        return base.CanHover(interactable) && interactable.transform.tag == targetTag;
+        bool isFix = interactable.transform.tag == "SupportFixture" ? (transform.parent.parent.childCount > 2 ? true : false) : true;
+        return base.CanHover(interactable) && interactable.transform.tag == targetTag && isFix;
+        
     }
     void objectFreezSeed()
     {
@@ -46,13 +44,13 @@ public class XRSoketTagInteractor : XRSocketInteractor
         hand.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         Destroy(hand.transform.GetComponent<XRGrabInteractable>());
         hand.transform.SetParent(transform.parent.parent);
-        //Destroy(transform.GetComponent<XRSoketTagInteractor>());
         Destroy(gameObject);
     }
 
     public override bool CanSelect(IXRSelectInteractable interactable)
     {
+        bool isFix = interactable.transform.tag == "SupportFixture" ? (transform.parent.parent.childCount > 2 ? true : false) : true;
         hand = interactable;
-        return base.CanSelect(interactable) && interactable.transform.tag == targetTag;
+        return base.CanSelect(interactable) && interactable.transform.tag == targetTag && isFix;
     }
 }
