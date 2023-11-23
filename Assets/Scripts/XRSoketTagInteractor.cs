@@ -25,7 +25,7 @@ public class XRSoketTagInteractor : XRSocketInteractor
     }
     public override bool CanHover(IXRHoverInteractable interactable)
     {
-        bool isFix = interactable.transform.tag == "SupportFixture" ? (transform.parent.parent.childCount > 2 ? true : false) : true;
+        bool isFix = interactable.transform.tag == "SupportFixture" ? (transform.parent.parent.childCount > 2) : true;
         return base.CanHover(interactable) && interactable.transform.tag == targetTag && isFix;
         
     }
@@ -49,7 +49,7 @@ public class XRSoketTagInteractor : XRSocketInteractor
 
     public override bool CanSelect(IXRSelectInteractable interactable)
     {
-        bool isFix = interactable.transform.tag == "SupportFixture" ? (transform.parent.parent.childCount > 2 ? true : false) : true;
+        bool isFix = interactable.transform.tag == "SupportFixture" ? (transform.parent.parent.childCount > 2) : true;
         hand = interactable;
         return base.CanSelect(interactable) && interactable.transform.tag == targetTag && isFix;
     }
