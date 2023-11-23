@@ -14,14 +14,13 @@ public class SceneLoadManager : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().buildIndex == 1)
             {
+                LoadScene("HouseOutScene");
+            }
+            else if (SceneManager.GetActiveScene().buildIndex == 2)
+            {
                 LoadScene("Scene_HouseIn");
             }
-            else if (SceneManager.GetActiveScene().buildIndex == 0)
-            {
-                LoadScene("Scene_HouseOut");
-                TimeManager.Instance.StartTime();
-            }
-            Grid.Instance.ObjActive();
+            if(TimeManager.Instance.Day > 1 || TimeManager.Instance.HourOfTime() > 7) Grid.Instance.ObjActive();
         }
     }
 
