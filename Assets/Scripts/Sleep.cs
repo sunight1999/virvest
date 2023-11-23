@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Sleep : MonoBehaviour
 {
+    public GameObject sleepUI;
     [SerializeField] Transform XROrigin;
 
     private void OnTriggerEnter(Collider other)
@@ -12,14 +13,14 @@ public class Sleep : MonoBehaviour
         
         if (other.gameObject.name == "XR Origin")
         {
-
+            sleepUI.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.name == "XR Origin")
         {
-            transform.GetChild(0).gameObject.SetActive(false);
+            sleepUI.SetActive(false);
         }
     }
 }
