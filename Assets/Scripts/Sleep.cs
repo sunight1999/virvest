@@ -9,7 +9,6 @@ public class Sleep : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
         if (other.gameObject.name == "XR Origin")
         {
 
@@ -21,5 +20,11 @@ public class Sleep : MonoBehaviour
         {
             transform.GetChild(0).gameObject.SetActive(false);
         }
+    }
+
+    public void UpdateDay()
+    {
+        TimeManager.Instance.UpdateDay();
+        print(TimeManager.Instance.Day);
     }
 }
