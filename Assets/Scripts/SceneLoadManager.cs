@@ -12,16 +12,15 @@ public class SceneLoadManager : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (SceneManager.GetActiveScene().buildIndex == 2)
+            if (SceneManager.GetActiveScene().buildIndex == 1)
+            {
+                LoadScene("HouseOutScene");
+            }
+            else if (SceneManager.GetActiveScene().buildIndex == 2)
             {
                 LoadScene("Scene_HouseIn");
             }
-            else if (SceneManager.GetActiveScene().buildIndex == 1)
-            {
-                LoadScene("HouseOutScene");
-                //TimeManager.Instance.StartTime();
-            }
-            //Grid.Instance.ObjActive();
+            if(TimeManager.Instance.Day > 1 || TimeManager.Instance.HourOfTime() > 7) Grid.Instance.ObjActive();
         }
     }
 
