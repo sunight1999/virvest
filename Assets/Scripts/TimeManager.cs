@@ -48,7 +48,7 @@ public class TimeManager : MonoBehaviour
 
     private IEnumerator TimeUpdate()
     {
-        while (currentTime.TimeOfDay < sunsetTime && SceneManager.GetActiveScene().buildIndex == 1)
+        while (currentTime.TimeOfDay < sunsetTime && SceneManager.GetActiveScene().buildIndex == 2)
         {
             if (sunLight == null)
             {
@@ -107,6 +107,14 @@ public class TimeManager : MonoBehaviour
     public string TimeWatch()
     {
         return currentTime.ToString(" d") + " day " + currentTime.ToString("HH:mm");
+    }
+    public int HourOfTime()
+    {
+        return currentTime.Hour;
+    }
+    public int DayOfTime()
+    {
+        return currentTime.Day;
     }
     public void StartTime()
     {
