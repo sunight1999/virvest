@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class AIGrid : SingletonMono<AIGrid>
+public class GreenHouseGrid : SingletonMono<GreenHouseGrid>
 {
 
-    [SerializeField] private Vector2 gridWorldSize;
+    public Vector2 gridWorldSize;
     [SerializeField] private float nodeRadious;
     [SerializeField] private GameObject soilPrefab;
 
@@ -14,7 +14,8 @@ public class AIGrid : SingletonMono<AIGrid>
     private HashSet<GameObject> farmLands;
     int gridXSize, gridYSize;
     float nodeDiameter;
-    Node[,] grid;
+    
+    public Node[,] Grid { get; private set; }
 
     void Start()
     {
@@ -34,7 +35,7 @@ public class AIGrid : SingletonMono<AIGrid>
 
     private void GenerateGrid()
     {
-        grid = new Node[gridXSize, gridYSize];
+        Grid = new Node[gridXSize, gridYSize];
         Vector3 topLeftNodePosition = transform.position - (Vector3.right * gridWorldSize.x / 2f) - (Vector3.forward * gridWorldSize.y / 2f);
 
         Debug.Log(gridXSize);
@@ -48,11 +49,11 @@ public class AIGrid : SingletonMono<AIGrid>
                     Vector3.right * (x * nodeDiameter + nodeRadious) +
                     Vector3.forward * (y * nodeDiameter * 0.95f + nodeRadious);
 
-                grid[x, y] = new Node(worldPoint);
+                Grid[x, y] = new Node(worldPoint);
             }
         }
 
-        foreach (Node node in grid)
+        foreach (Node node in Grid)
         {
             farmLands.Add(Instantiate(soilPrefab, node.worldPosition, Quaternion.identity, transform));
         }
