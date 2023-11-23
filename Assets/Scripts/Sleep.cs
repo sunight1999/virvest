@@ -12,11 +12,7 @@ public class Sleep : MonoBehaviour
         
         if (other.gameObject.name == "XR Origin")
         {
-            //transform.GetChild(0).gameObject.SetActive(true);
-            //transform.GetChild(0).gameObject.transform.LookAt(XROrigin);
-            //transform.GetChild(0).gameObject.transform.forward *= -1;
-            TimeManager.Instance.UpdateDay();
-            print(TimeManager.Instance.Day);
+
         }
     }
     private void OnTriggerExit(Collider other)
