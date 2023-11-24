@@ -9,7 +9,6 @@ public class FarmManager : MonoBehaviour
     public BoxCollider pitchForkCol; //밭갈개의 판정 콜라이더
     [SerializeField] public int plowCount; //밭갈개의 땅 갈기 카운터
 
-    public GameObject soil; // 경작지
     public Material[] gridSoils; //물 주었을 떄 넣을 메트리얼
     [SerializeField] int gridSoilsIndex = 0;
 

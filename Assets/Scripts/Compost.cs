@@ -37,7 +37,7 @@ public class Compost : MonoBehaviour
 
             for(int i = 0; i < collisionEvents.Count; i++)
             {
-                if (compostIndex < 10)
+                if (compostIndex < 10 && other.GetComponent<Ground>().composts.Count < 10)
                 {
                     if (collisionEvents[i].intersection.Equals(Vector3.zero))
                         return;
