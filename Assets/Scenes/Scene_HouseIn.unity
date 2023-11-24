@@ -3180,7 +3180,7 @@ GameObject:
   - component: {fileID: 728108803}
   - component: {fileID: 728108807}
   - component: {fileID: 728108806}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SoccerBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14352,7 +14352,7 @@ GameObject:
   - component: {fileID: 2282063677853446048}
   - component: {fileID: 2267040142416876097}
   - component: {fileID: 4593391543414521557}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BezierCurve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15623,7 +15623,7 @@ GameObject:
   - component: {fileID: 8183468180236961084}
   - component: {fileID: 8183468180236961083}
   - component: {fileID: 8183468180236961085}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "\uC57C\uAD6C\uACF5"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
