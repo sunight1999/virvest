@@ -13,11 +13,11 @@ public class XRSoketTagInteractor : XRSocketInteractor
 
     void Update()
     {
-        if (hand != null && IsSelecting(hand) && transform.parent.parent.gameObject.layer == 11)
+        if (hand != null && CanSelect(hand) && transform.parent.parent.gameObject.layer == 11)
         {
             Invoke("objectFreezSeed", 0.5f);
         }
-        else if(hand != null && transform.parent.parent.gameObject.layer == 12 && IsSelecting(hand))
+        else if(hand != null && transform.parent.parent.gameObject.layer == 12 && CanSelect(hand))
         {
             transform.parent.parent.gameObject.layer = 13;
             Invoke("objectFreezSupportFixture", 0.5f);
@@ -26,15 +26,15 @@ public class XRSoketTagInteractor : XRSocketInteractor
     public override bool CanHover(IXRHoverInteractable interactable)
     {
         bool isFix = interactable.transform.tag == "SupportFixture" ? (transform.parent.parent.childCount > 2) : true;
-        return base.CanHover(interactable) && interactable.transform.tag == targetTag && isFix;
+        return base.CanHover(interactable) && interactable.transform.tag == targetTag && isFix && transform.parent.parent.gameObject.layer > 10;
         
     }
     void objectFreezSeed()
     {
         transform.parent.parent.gameObject.layer = 12;
-        hand.transform.SetParent(transform.parent.parent);
         hand.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-        Destroy(hand.transform.GetChild(0).transform.GetComponent<XRGrabInteractable>());
+        Destroy(hand.transform.GetComponent<XRGrabInteractable>());
+        hand.transform.SetParent(transform.parent.parent);
         Destroy(gameObject);
     }
 
