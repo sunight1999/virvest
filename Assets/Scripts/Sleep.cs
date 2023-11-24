@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 public class Sleep : MonoBehaviour
 {
     public GameObject sleepUI;
+    public GameObject badCam;
     [SerializeField] Transform XROrigin;
 
     private void OnTriggerEnter(Collider other)
     {
-        
         if (other.gameObject.name == "XR Origin")
         {
             sleepUI.SetActive(true);
@@ -20,7 +20,19 @@ public class Sleep : MonoBehaviour
     {
         if (other.gameObject.name == "XR Origin")
         {
-            sleepUI.SetActive(false);
+            OffSleepPanel();
         }
+    }
+
+    public void OffSleepPanel()
+    {
+        sleepUI.SetActive(false);
+    }
+
+    public void OnSleep()
+    {
+        badCam.SetActive(true);
+        OffSleepPanel();
+        Camera.main.gameObject.SetActive(false);
     }
 }

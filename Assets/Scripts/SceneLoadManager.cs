@@ -6,28 +6,49 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoadManager : MonoBehaviour
 {
+    public GameObject doorPanel;
+
     public Animator crossFade;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            if (SceneManager.GetActiveScene().buildIndex == 1)
-            {
-                LoadScene("HouseOutScene");
-            }
-            else if (SceneManager.GetActiveScene().buildIndex == 2)
-            {
-                LoadScene("Scene_HouseIn");
-            }
+            Debug.Log(other.name);
+            doorPanel.SetActive(true);
             if(TimeManager.Instance.Day > 1 || TimeManager.Instance.HourOfTime() > 7) Grid.Instance.ObjActive();
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            OffDoorPanel();
+        }
+    }
+
+    public void OffDoorPanel()
+    {
+        doorPanel.SetActive(false);
     }
 
     public void LoadScene(string name)
     {
         //StartCoroutine(TriggerCrossFadeCoroutine());
         StartCoroutine(LoadSceneCoroutine(name));
+    }
+
+    public void CheckSceneChange()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            LoadScene("HouseOutScene");
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            LoadScene("Scene_HouseIn");
+        }
     }
 
     IEnumerator LoadSceneCoroutine(string name)
