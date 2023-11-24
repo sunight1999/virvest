@@ -22,6 +22,11 @@ public class Compost : MonoBehaviour
         isReadyComposting = true;
     }
 
+    private void Update()
+    {
+        Composting();
+    }
+
     List<Vector3> tests = new List<Vector3>();
     private void OnParticleCollision(GameObject other)
     {

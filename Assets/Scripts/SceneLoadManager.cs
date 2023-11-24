@@ -14,7 +14,6 @@ public class SceneLoadManager : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log(other.name);
             doorPanel.SetActive(true);
             if(TimeManager.Instance.Day > 1 || TimeManager.Instance.HourOfTime() > 7) Grid.Instance.ObjActive();
         }
