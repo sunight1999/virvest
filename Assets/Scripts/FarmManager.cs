@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class FarmManager : MonoBehaviour
 {
-    public GameObject compost;
-    public ParticleSystem compostParticle;
-    public int compostIndex;
-
     public GameObject Fertilizer;
 
     public BoxCollider pitchForkCol; //밭갈개의 판정 콜라이더
@@ -18,21 +14,18 @@ public class FarmManager : MonoBehaviour
     [SerializeField] int gridSoilsIndex = 0;
 
     [SerializeField] public Ground farmland;
-    public bool isReadyComposting;
+    
 
     public bool isGrab = true;
 
     void Start()
     {
         isGrab = false;
-        isReadyComposting = true;
     }
 
     void Update()
     {
-        Debug.Log(isReadyComposting);
-        Debug.Log(compost.transform);
-        Composting();
+
     }
 
     public void OnGrab()
@@ -62,19 +55,5 @@ public class FarmManager : MonoBehaviour
             gridSoilsIndex++;
         }
         else return;
-    }
-
-    public void Composting()
-    {
-        if(isReadyComposting && isGrab && (compost.transform.eulerAngles.z > 160 && compost.transform.eulerAngles.z < 200))
-        {
-            compostParticle.Play();
-        }
-        else if(isReadyComposting == false && !(compost.transform.eulerAngles.z > 160 && compost.transform.eulerAngles.z < 200))
-        {
-            isReadyComposting = true;
-        }
-        else
-            compostParticle.Stop();
     }
 }
