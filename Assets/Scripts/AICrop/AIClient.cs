@@ -6,10 +6,13 @@ using System.Text;
 using System.Threading;
 using UnityEngine;
 
-public class AIClient : MonoBehaviour
+public class AIClient : SingletonMono<AIClient>
 {
     public string aiServerHost;
     public int aiServerPort;
+
+    public delegate void DispatchPrediction(GreenHouseInfo greenHouseInfo);
+    public DispatchPrediction dispatchPrediction;
 
     Thread predictionReceiver;
 
@@ -18,10 +21,12 @@ public class AIClient : MonoBehaviour
     private byte[] buffer;
     private int bufferSize;
 
-    void Start()
+    protected override void Awake()
     {
+        base.Awake();
+
         ConnectAIServer();
-        predictionReceiver = new Thread(new ThreadStart(HandlePrediction));
+        predictionReceiver = new Thread(new ThreadStart(ReceivePrediction));
         predictionReceiver.Start();
     }
 
@@ -39,7 +44,7 @@ public class AIClient : MonoBehaviour
         }
     }
 
-    private void HandlePrediction()
+    private void ReceivePrediction()
     {
         if (socket == null)
             return;
@@ -70,7 +75,9 @@ public class AIClient : MonoBehaviour
                 string date = Read();
                 int prediction = ReadInt();
 
-                Debug.Log("날짜 : " + date + " 예측값 : " + prediction);
+                Debug.Log("예측값 : " + prediction);
+
+                dispatchPrediction(new GreenHouseInfo(date, prediction));
             }
         }
         catch(SocketException e)
@@ -86,14 +93,13 @@ public class AIClient : MonoBehaviour
 
     private void ClearBuffer()
     {
-        Array.Fill<byte>(buffer, 0);
+        Array.Fill<byte>(buffer, (byte)0x20);
     }
 
     private void Write(string value)
     {
         byte[] bytes = Encoding.UTF8.GetBytes(value);
 
-        Debug.Log("문자열(" + value + ") 길이 : " + bytes.Length);
         stream.Write(bytes, 0, bytes.Length);
     }
 
@@ -108,6 +114,11 @@ public class AIClient : MonoBehaviour
     private int ReadInt()
     {
         return int.Parse(Read());
+    }
+
+    private float ReadFloat()
+    {
+        return float.Parse(Read());
     }
 
     private int GetResultCode()
