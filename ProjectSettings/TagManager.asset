@@ -14,6 +14,7 @@ TagManager:
   - Compost
   - Compost Prefab
   - Openable
+  - Fertilizer
   layers:
   - Default
   - TransparentFX
