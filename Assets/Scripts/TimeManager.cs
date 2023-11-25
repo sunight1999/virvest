@@ -45,7 +45,6 @@ public class TimeManager : MonoBehaviour
         Instance.StartTime();
     }
 
-
     private IEnumerator TimeUpdate()
     {
         while (currentTime.TimeOfDay < sunsetTime && SceneManager.GetActiveScene().buildIndex == 2)
@@ -115,6 +114,10 @@ public class TimeManager : MonoBehaviour
     public int DayOfTime()
     {
         return currentTime.Day;
+    }
+    public int MinOfTime()
+    {
+        return currentTime.Minute;
     }
     public void StartTime()
     {

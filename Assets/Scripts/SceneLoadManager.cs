@@ -7,8 +7,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoadManager : MonoBehaviour
 {
     public GameObject doorPanel;
-
-    public Animator crossFade;
+    public FadeScreen fadeScreen;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -50,8 +49,15 @@ public class SceneLoadManager : MonoBehaviour
         }
     }
 
+    public void SleepingLoadScene()
+    {
+        TimeManager.Instance.UpdateDay();
+        LoadScene("Scene_HouseIn");
+    }
+
     IEnumerator LoadSceneCoroutine(string name)
     {
+        fadeScreen.FadeOut();
         AsyncOperation async = SceneManager.LoadSceneAsync(name);
 
         // 씬이 완전히 로드될 때까지 대기
@@ -61,19 +67,7 @@ public class SceneLoadManager : MonoBehaviour
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(name));
     }
 
-    public void UnloadScene(string name)
-    {
-        StartCoroutine(TriggerCrossFadeCoroutine());
 
-        SceneManager.UnloadSceneAsync(name);
-
-    }
-
-    IEnumerator TriggerCrossFadeCoroutine()
-    {
-        crossFade.SetTrigger("Start");
-        yield break;
-    }
 
 
 }
