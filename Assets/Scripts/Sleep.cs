@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Sleep : MonoBehaviour
 {
+    public SceneLoadManager sceneLoadManager;
     public FadeScreen fadeScreen;
     public GameObject sleepUI;
     public GameObject badCam;
@@ -36,6 +37,10 @@ public class Sleep : MonoBehaviour
         OffSleepPanel();
         Camera.main.gameObject.SetActive(false);
         TimeManager.Instance.UpdateDay();
-        Invoke("fadeScreen.FadeOut()", 1f);
+        Invoke("OnSleepingLoad", 1f);
+    }
+    private void OnSleepingLoad()
+    {
+        sceneLoadManager.SleepingLoadScene();
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FadeScreen : MonoBehaviour
+public class FadeScreen : SingletonMono<FadeScreen>
 {
     public bool fadeOnStart = true;
     public float fadeDuration = 2;
