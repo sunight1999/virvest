@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +16,7 @@ public class TimeManager : MonoBehaviour
     //[SerializeField] private TextMeshProUGUI timeText;
 
     private DateTime currentTime;
+    private DateTime defaltTime;
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
 
@@ -37,6 +39,7 @@ public class TimeManager : MonoBehaviour
 
     private void Start()
     {
+        defaltTime = DateTime.Now.Date + TimeSpan.FromHours(sunriseHour) + TimeSpan.FromDays(1f - DateTime.Today.Day);
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(sunriseHour) + TimeSpan.FromDays(1f - DateTime.Today.Day);
         Day = currentTime.Day;
 
@@ -102,6 +105,10 @@ public class TimeManager : MonoBehaviour
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(sunriseHour) + TimeSpan.FromDays(currentTime.Day - DateTime.Today.Day);
         Day = currentTime.Day;
         Grid.Instance.UpdateSeeding();
+    }
+    public bool isFirst()
+    {
+        return currentTime == defaltTime;
     }
     public string TimeWatch()
     {

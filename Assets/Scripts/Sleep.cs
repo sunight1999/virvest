@@ -13,14 +13,14 @@ public class Sleep : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "XR Origin" && TimeManager.Instance.HourOfTime() >= 7 && TimeManager.Instance.MinOfTime() > 0)
+        if (other.gameObject.name == "XR Origin" && !TimeManager.Instance.isFirst())
         {
             sleepUI.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == "XR Origin" && TimeManager.Instance.HourOfTime() >= 7 && TimeManager.Instance.MinOfTime() > 0)
+        if (other.gameObject.name == "XR Origin")
         {
             OffSleepPanel();
         }
