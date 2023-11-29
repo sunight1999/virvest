@@ -11,6 +11,7 @@ public class Watering : MonoBehaviour
     void Start()
     {
         particle = GetComponent<ParticleSystem>();
+        //farmManager = GameObject.FindObjectOfType<FarmManager>();
     }
 
     void Update()

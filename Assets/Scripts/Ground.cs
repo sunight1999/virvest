@@ -14,6 +14,11 @@ public class Ground : MonoBehaviour
 
     public List<GameObject> composts = new List<GameObject>();
 
+    private void Update()
+    {
+        farmManager = GameObject.FindObjectOfType<FarmManager>();
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other == farmManager.pitchForkCol && transform.gameObject.layer == 10)

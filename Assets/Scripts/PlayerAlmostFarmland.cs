@@ -13,6 +13,11 @@ public class PlayerAlmostFarmland : MonoBehaviour
     public GameObject farmland;
     public float shotDis;
 
+    void Start()
+    {
+        //farmManager = GameObject.FindObjectOfType<FarmManager>();
+    }
+
     void Update()
     {
         FindAlmostFarmland();

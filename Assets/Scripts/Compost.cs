@@ -15,11 +15,14 @@ public class Compost : MonoBehaviour
 
     bool isReadyComposting;
 
+    public static Compost instance;
+
     void Start()
     {
         particle = GetComponent<ParticleSystem>();
         collisionEvents = new List<ParticleCollisionEvent>();
         isReadyComposting = true;
+        //farmManager = GameObject.FindObjectOfType<FarmManager>();
     }
 
     private void Update()

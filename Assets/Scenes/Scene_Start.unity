@@ -49203,10 +49203,10 @@ MonoBehaviour:
   m_TrackingStateInput:
     m_UseReference: 0
     m_Action:
-      m_Name: 
+      m_Name: Tracking State Input
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 
+      m_Id: 5d44b6b3-c05c-4c15-9c2d-3317ea617b4a
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -49636,7 +49636,7 @@ MonoBehaviour:
   m_Camera: {fileID: 9014170783998532098}
   m_OriginBaseGameObject: {fileID: 7696548424714519384}
   m_CameraFloorOffsetObject: {fileID: 9014170784076170791}
-  m_RequestedTrackingOriginMode: 2
+  m_RequestedTrackingOriginMode: 1
   m_CameraYOffset: 1.36144
 --- !u!114 &7873184977557373658
 MonoBehaviour:

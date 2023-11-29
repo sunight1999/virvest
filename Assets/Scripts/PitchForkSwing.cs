@@ -12,6 +12,7 @@ public class PitchForkSwing : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        //farmManager = GameObject.FindObjectOfType<FarmManager>();
     }
 
     void Update()

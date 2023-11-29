@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FarmManager : MonoBehaviour
 {
@@ -13,9 +14,21 @@ public class FarmManager : MonoBehaviour
     [SerializeField] int gridSoilsIndex = 0;
 
     [SerializeField] public Ground farmland;
-    
 
     public bool isGrab = true;
+
+    //public static FarmManager instance;
+
+    //private void Awake()
+    //{
+    //    if (instance != null)
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //    else instance = this;
+
+    //    DontDestroyOnLoad(gameObject);
+    //}
 
     void Start()
     {
