@@ -13,11 +13,11 @@ public class XRSoketTagInteractor : XRSocketInteractor
 
     void Update()
     {
-        if (hand != null && CanSelect(hand) && transform.parent.parent.gameObject.layer == 11)
+        if (hand != null && IsSelecting(hand) && transform.parent.parent.gameObject.layer == 11)
         {
             Invoke("objectFreezSeed", 0.5f);
         }
-        else if(hand != null && transform.parent.parent.gameObject.layer == 12 && CanSelect(hand))
+        else if(hand != null && transform.parent.parent.gameObject.layer == 12 && IsSelecting(hand))
         {
             transform.parent.parent.gameObject.layer = 13;
             Invoke("objectFreezSupportFixture", 0.5f);
