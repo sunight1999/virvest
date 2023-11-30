@@ -15,8 +15,8 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private Light sunLight;
     //[SerializeField] private TextMeshProUGUI timeText;
 
-    private DateTime currentTime;
     private DateTime defaltTime;
+    private DateTime currentTime;
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
 
@@ -69,8 +69,7 @@ public class TimeManager : MonoBehaviour
             RotateSun();
             yield return null;
         }
-        sunLight.transform.rotation = Quaternion.AngleAxis(200, Vector3.right);
-        sunLight.color = Color.blue;
+        if(sunLight != null) sunLight.color = Color.blue;
     }
 
     private void UpdateTimeofDay()
@@ -84,7 +83,7 @@ public class TimeManager : MonoBehaviour
         TimeSpan timeSinceSurise = CalculateTimeDifference(sunriseTime, currentTime.TimeOfDay);
 
         double percentage = timeSinceSurise.TotalMinutes / sunriseToSunsetDuration.TotalMinutes;
-        float sunLightRotation = Mathf.Lerp(0, 180, (float)percentage);
+        float sunLightRotation = Mathf.Lerp(0, 200, (float)percentage);
 
         sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right);
     }
