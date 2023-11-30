@@ -69,6 +69,8 @@ public class TimeManager : MonoBehaviour
             RotateSun();
             yield return null;
         }
+        sunLight.transform.rotation = Quaternion.AngleAxis(200, Vector3.right);
+        sunLight.color = Color.blue;
     }
 
     private void UpdateTimeofDay()
@@ -109,6 +111,10 @@ public class TimeManager : MonoBehaviour
     public bool isFirst()
     {
         return currentTime == defaltTime;
+    }
+    public bool isDay()
+    {
+        return currentTime.TimeOfDay < sunsetTime;
     }
     public string TimeWatch()
     {

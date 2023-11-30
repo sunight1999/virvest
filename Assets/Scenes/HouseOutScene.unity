@@ -20010,7 +20010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cd84559ff07bb94fb8109717a5c662f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeMultiplier: 250
+  timeMultiplier: 144
   sunriseHour: 7
   sunsetHour: 20.5
   sunLight: {fileID: 599015971}
@@ -30970,6 +30970,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8af7f029ad343f741a3e7019f70ac5cc, type: 2}
+    - target: {fileID: 5383643471232127250, guid: 9ba3cc9388372284db9bb1d9f92f1aab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5383643471829120741, guid: 9ba3cc9388372284db9bb1d9f92f1aab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5383643472733572210, guid: 9ba3cc9388372284db9bb1d9f92f1aab,
         type: 3}
       propertyPath: m_RootOrder
@@ -31029,6 +31039,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Skydome
+      objectReference: {fileID: 0}
+    - target: {fileID: 5383643472733572220, guid: 9ba3cc9388372284db9bb1d9f92f1aab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ba3cc9388372284db9bb1d9f92f1aab, type: 3}
