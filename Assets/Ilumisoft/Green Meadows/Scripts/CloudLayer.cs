@@ -5,7 +5,7 @@ namespace Ilumisoft.GreenMeadows
 {
     public class CloudLayer : MonoBehaviour
     {
-        private bool isGray = false;
+        private bool isBlack = true;
         [SerializeField]
         [Tooltip("The list of prefabs used to spawn clouds")]
         private List<GameObject> cloudPrefabs = null;
@@ -94,15 +94,15 @@ namespace Ilumisoft.GreenMeadows
         void Update()
         {
             RotateClouds();
-            if (!TimeManager.Instance.isDay() && !isGray)
+            if (TimeManager.Instance.HourOfTime() >= 19 && !isBlack)
             {
-                foreach(GameObject cloud in CloudPrefabs) cloud.GetComponent<Renderer>().sharedMaterial.color = Color.black;
-                isGray = true;
+                foreach (GameObject cloud in CloudPrefabs) cloud.GetComponent<Renderer>().sharedMaterial.color = Color.black;
+                isBlack = true;
             }
-            else if(TimeManager.Instance.isDay())
+            else if (TimeManager.Instance.HourOfTime() < 19 && isBlack)
             {
                 foreach (GameObject cloud in CloudPrefabs) cloud.GetComponent<Renderer>().sharedMaterial.color = Color.white;
-                isGray = false;
+                isBlack = false;
             }
         }
 

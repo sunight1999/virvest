@@ -26,11 +26,6 @@ public class Grid : SingletonMono<Grid>
         GenerateGrid();
     }
 
-    private void Update()
-    {
-        //GenerateGrid();
-    }
-
     private void GenerateGrid()
     {
         grid = new Node[gridXSize, gridYSize];
