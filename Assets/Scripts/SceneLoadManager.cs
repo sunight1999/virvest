@@ -58,7 +58,7 @@ public class SceneLoadManager : MonoBehaviour
 
     IEnumerator LoadSceneCoroutine(string name)
     {
-        fadeScreen.FadeOut();
+        //fadeScreen.FadeOut();
         AsyncOperation async = SceneManager.LoadSceneAsync(name);
 
         // 씬이 완전히 로드될 때까지 대기
