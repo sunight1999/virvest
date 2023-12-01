@@ -14,7 +14,6 @@ public class SceneLoadManager : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             doorPanel.SetActive(true);
-            if(!TimeManager.Instance.IsFirst()) Grid.Instance.ObjActive();
         }
     }
 
@@ -39,6 +38,8 @@ public class SceneLoadManager : MonoBehaviour
 
     public void CheckSceneChange()
     {
+        if (!TimeManager.Instance.IsFirst()) Grid.Instance.ObjActive();
+
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             LoadScene("HouseOutScene");
