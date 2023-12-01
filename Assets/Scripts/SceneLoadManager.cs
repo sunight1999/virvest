@@ -38,17 +38,17 @@ public class SceneLoadManager : MonoBehaviour
 
     public void CheckSceneChange()
     {
-        if (!TimeManager.Instance.IsFirst()) Grid.Instance.ObjActive();
-
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             LoadScene("HouseOutScene");
         }
         else if (SceneManager.GetActiveScene().buildIndex == 2)
         {
+            Grid.Instance.ObjActive();
             LoadScene("Scene_HouseIn");
         }
     }
+
 
     public void SleepingLoadScene()
     {
@@ -58,6 +58,7 @@ public class SceneLoadManager : MonoBehaviour
 
     IEnumerator LoadSceneCoroutine(string name)
     {
+
         //fadeScreen.FadeOut();
         AsyncOperation async = SceneManager.LoadSceneAsync(name);
 
@@ -66,5 +67,6 @@ public class SceneLoadManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         // 씬이 로드된 다음 ActiveScene으로 설정
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(name));
+
     }
 }
