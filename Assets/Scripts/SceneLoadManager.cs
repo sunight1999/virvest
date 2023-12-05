@@ -14,7 +14,6 @@ public class SceneLoadManager : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             doorPanel.SetActive(true);
-            if(!TimeManager.Instance.isFirst()) Grid.Instance.ObjActive();
         }
     }
 
@@ -45,9 +44,11 @@ public class SceneLoadManager : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().buildIndex == 2)
         {
+            Grid.Instance.ObjActive();
             LoadScene("Scene_HouseIn");
         }
     }
+
 
     public void SleepingLoadScene()
     {
@@ -57,7 +58,8 @@ public class SceneLoadManager : MonoBehaviour
 
     IEnumerator LoadSceneCoroutine(string name)
     {
-        fadeScreen.FadeOut();
+
+        //fadeScreen.FadeOut();
         AsyncOperation async = SceneManager.LoadSceneAsync(name);
 
         // 씬이 완전히 로드될 때까지 대기
@@ -65,5 +67,6 @@ public class SceneLoadManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         // 씬이 로드된 다음 ActiveScene으로 설정
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(name));
+
     }
 }

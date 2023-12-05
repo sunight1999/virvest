@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Grid : SingletonMono<Grid>
+public class Grid : MonoBehaviour
 {
 
     [SerializeField] private Vector2 gridWorldSize;
@@ -15,7 +15,20 @@ public class Grid : SingletonMono<Grid>
     int gridXSize, gridYSize;
     float nodeDiameter;
     Node[,] grid;
+    public static Grid Instance { get; private set; }
+    public bool isDestroyProtected;
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Instance.ObjActive();
+            Destroy(gameObject);
+        }
+        else Instance = this;
 
+        if (isDestroyProtected)
+            DontDestroyOnLoad(gameObject);
+    }
     void Start()
     {
         nodeDiameter = prefab.GetComponent<BoxCollider>().bounds.size.x; // 오브젝트에 포함된 한 노드당 크기 할당
@@ -24,11 +37,6 @@ public class Grid : SingletonMono<Grid>
         thikness = prefab.GetComponent<BoxCollider>().bounds.size.y;
         farmLands = new HashSet<GameObject>();
         GenerateGrid();
-    }
-
-    private void Update()
-    {
-        //GenerateGrid();
     }
 
     private void GenerateGrid()
@@ -62,8 +70,8 @@ public class Grid : SingletonMono<Grid>
             afterSoil.SetActive(!afterSoil.activeSelf);
             if (soils.transform.childCount > 2) // 오브젝트 'SoilGenerate'의 자식 오브젝트의 개수로 판별. 각별히 유의할 것.
             {
-                afterSoil = soils.transform.GetChild(2).transform.GetChild(0).gameObject;  //모종을 숨김.
-                afterSoil.SetActive(!afterSoil.activeSelf);
+                GameObject easd = soils.transform.GetChild(2).transform.GetChild(0).gameObject;  //모종을 숨김.
+                easd.SetActive(!afterSoil.activeSelf);
             }
         }
     }
