@@ -34,7 +34,7 @@ public class Watering : MonoBehaviour
 
     void OnParticleCollision(GameObject other)
     {
-        if(other.layer >= 9 && other.gameObject.tag != "Farmland")
+        if(other.layer >= 9)
         {
             farmManager.WateringToSoil(other);
         }

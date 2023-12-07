@@ -15,6 +15,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private Light sunLight;
     //[SerializeField] private TextMeshProUGUI timeText;
 
+    private DateTime defaltTime;
     private DateTime currentTime;
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
@@ -22,7 +23,6 @@ public class TimeManager : MonoBehaviour
     public static TimeManager Instance { get; private set; }
     public int Day { get; private set; }
     public bool isDestroyProtected;
-    private bool isFirst = false;
     private void Awake()
     {
         if(Instance != null)
@@ -39,6 +39,7 @@ public class TimeManager : MonoBehaviour
 
     private void Start()
     {
+        defaltTime = DateTime.Now.Date + TimeSpan.FromHours(sunriseHour) + TimeSpan.FromDays(1f - DateTime.Today.Day);
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(sunriseHour) + TimeSpan.FromDays(1f - DateTime.Today.Day);
         Day = currentTime.Day;
 
@@ -51,7 +52,6 @@ public class TimeManager : MonoBehaviour
     {
         while (currentTime.TimeOfDay < sunsetTime && SceneManager.GetActiveScene().buildIndex == 2)
         {
-            if (isFirst) isFirst = false;
             if (sunLight == null)
             {
                 Light[] lights = GameObject.FindObjectsOfType<Light>();
@@ -69,7 +69,7 @@ public class TimeManager : MonoBehaviour
             RotateSun();
             yield return null;
         }
-        if(sunLight != null) sunLight.color = new Color(0f, 0f, 1f);
+        if(sunLight != null) sunLight.color = Color.blue;
     }
 
     private void UpdateTimeofDay()
@@ -107,6 +107,14 @@ public class TimeManager : MonoBehaviour
         Day = currentTime.Day;
         Grid.Instance.UpdateSeeding();
     }
+    public bool isFirst()
+    {
+        return currentTime == defaltTime;
+    }
+    public bool isDay()
+    {
+        return currentTime.TimeOfDay < sunsetTime;
+    }
     public string TimeWatch()
     {
         return currentTime.ToString(" d") + " day " + currentTime.ToString("HH:mm");
@@ -130,9 +138,5 @@ public class TimeManager : MonoBehaviour
     public void StopTime()
     {
         StopCoroutine(TimeUpdate());
-    }
-    public bool IsFirst()
-    {
-        return isFirst;
     }
 }

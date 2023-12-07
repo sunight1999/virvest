@@ -13,7 +13,7 @@ public class Sleep : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "XR Origin" && !TimeManager.Instance.IsFirst())
+        if (other.gameObject.name == "XR Origin" && !TimeManager.Instance.isFirst())
         {
             sleepUI.SetActive(true);
         }
