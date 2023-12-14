@@ -17,7 +17,7 @@ public class AIClient : SingletonMono<AIClient>
     Thread predictionReceiver;
 
     private TcpClient socket;
-    NetworkStream stream;
+    private NetworkStream stream;
     private byte[] buffer;
     private int bufferSize;
 
@@ -25,22 +25,35 @@ public class AIClient : SingletonMono<AIClient>
     {
         base.Awake();
 
-        ConnectAIServer();
+        StartCoroutine(BeginAIClient());
+    }
+
+    private IEnumerator BeginAIClient()
+    {
+        // 30초마다 AI 서버 연결 시도
+        while (!ConnectAIServer())
+        {
+            yield return new WaitForSeconds(30f);
+        }
+
+        // AI 서버와 연결에 성공하면 예측값을 수신하는 쓰레드 생성
         predictionReceiver = new Thread(new ThreadStart(ReceivePrediction));
         predictionReceiver.Start();
     }
 
-    private void ConnectAIServer()
+    private bool ConnectAIServer()
     {
         try
         {
             socket = new TcpClient(aiServerHost, aiServerPort);
             bufferSize = 1024;
             buffer = new byte[bufferSize];
+            return true;
         }
         catch (Exception e)
         {
             Debug.LogError("Failed to connect AI Server " + e);
+            return false;
         }
     }
 
@@ -59,7 +72,7 @@ public class AIClient : SingletonMono<AIClient>
             }
 
             // 유니티 클라이언트 리스너 등록 요청
-            Write("1");
+            Write64("1");
 
             if (GetResultCode() < 0)
             {
@@ -72,7 +85,8 @@ public class AIClient : SingletonMono<AIClient>
             // 서버에서 보내는 예측값 대기
             while (true)
             {
-                string date = Read();
+                int datelen = ReadInt();
+                string date = Read(datelen);
                 int prediction = ReadInt();
 
                 Debug.Log("예측값 : " + prediction);
@@ -80,7 +94,7 @@ public class AIClient : SingletonMono<AIClient>
                 dispatchPrediction(new GreenHouseInfo(date, prediction));
             }
         }
-        catch(SocketException e)
+        catch (SocketException e)
         {
             Debug.LogError("Failed to communicate " + e);
         }
@@ -103,28 +117,38 @@ public class AIClient : SingletonMono<AIClient>
         stream.Write(bytes, 0, bytes.Length);
     }
 
-    private string Read()
+    private void Write64(string value)
+    {
+        byte[] bytes = Encoding.UTF8.GetBytes(value.PadLeft(64));
+
+        stream.Write(bytes, 0, 64);
+    }
+
+    private string Read(int size = 0)
     {
         ClearBuffer();
-        
-        stream.Read(buffer);
+
+        if (size == 0)
+            stream.Read(buffer);
+        else
+            stream.Read(buffer, 0, size);
+
         return Encoding.UTF8.GetString(buffer);
     }
 
     private int ReadInt()
     {
-        return int.Parse(Read());
+        return int.Parse(Read(64));
     }
 
     private float ReadFloat()
     {
-        return float.Parse(Read());
+        return float.Parse(Read(64));
     }
 
     private int GetResultCode()
     {
-        stream.Read(buffer);
-        int result = int.Parse(Encoding.UTF8.GetString(buffer));
+        int result = ReadInt();
 
         if (result < 0)
         {
