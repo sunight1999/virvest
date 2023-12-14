@@ -17,7 +17,7 @@ public class SeedingGrowth : MonoBehaviour
         {
             for (int i = 0; i < transform.childCount; i++) Destroy(transform.GetChild(i).gameObject);
             seedingStep.RemoveAt(0);
-            Instantiate(seedingStep[0], transform.position, Quaternion.identity, transform).SetActive(false);
+            Instantiate(seedingStep[0], transform.position, Quaternion.identity, transform);
         }
     }
 

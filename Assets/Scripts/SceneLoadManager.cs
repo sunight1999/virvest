@@ -44,7 +44,7 @@ public class SceneLoadManager : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().buildIndex == 2)
         {
-            Grid.Instance.ObjActive();
+            //Grid.Instance.ObjActive();
             LoadScene("Scene_HouseIn");
         }
     }
@@ -52,7 +52,6 @@ public class SceneLoadManager : MonoBehaviour
 
     public void SleepingLoadScene()
     {
-        TimeManager.Instance.UpdateDay();
         LoadScene("Scene_HouseIn");
     }
 

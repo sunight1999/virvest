@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Grid : MonoBehaviour
+public class Grid : SingletonMono<Grid>
 {
 
     [SerializeField] private Vector2 gridWorldSize;
@@ -15,20 +15,8 @@ public class Grid : MonoBehaviour
     int gridXSize, gridYSize;
     float nodeDiameter;
     Node[,] grid;
-    public static Grid Instance { get; private set; }
-    public bool isDestroyProtected;
-    private void Awake()
-    {
-        if (Instance != null)
-        {
-            Instance.ObjActive();
-            Destroy(gameObject);
-        }
-        else Instance = this;
-
-        if (isDestroyProtected)
-            DontDestroyOnLoad(gameObject);
-    }
+    //public static Grid Instance { get; private set; }
+   
     void Start()
     {
         nodeDiameter = prefab.GetComponent<BoxCollider>().bounds.size.x; // 오브젝트에 포함된 한 노드당 크기 할당
@@ -62,6 +50,8 @@ public class Grid : MonoBehaviour
         }
 
     }
+
+    /*
     public void ObjActive()
     {
         foreach (GameObject soils in farmLands)
@@ -75,6 +65,7 @@ public class Grid : MonoBehaviour
             }
         }
     }
+    */
 
     public void UpdateSeeding()
     {
