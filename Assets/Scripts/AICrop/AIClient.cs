@@ -17,7 +17,7 @@ public class AIClient : SingletonMono<AIClient>
     Thread predictionReceiver;
 
     private TcpClient socket;
-    private NetworkStream stream;
+    NetworkStream stream;
     private byte[] buffer;
     private int bufferSize;
 
@@ -25,35 +25,22 @@ public class AIClient : SingletonMono<AIClient>
     {
         base.Awake();
 
-        StartCoroutine(BeginAIClient());
-    }
-
-    private IEnumerator BeginAIClient()
-    {
-        // 30초마다 AI 서버 연결 시도
-        while (!ConnectAIServer())
-        {
-            yield return new WaitForSeconds(30f);
-        }
-
-        // AI 서버와 연결에 성공하면 예측값을 수신하는 쓰레드 생성
+        ConnectAIServer();
         predictionReceiver = new Thread(new ThreadStart(ReceivePrediction));
         predictionReceiver.Start();
     }
 
-    private bool ConnectAIServer()
+    private void ConnectAIServer()
     {
         try
         {
             socket = new TcpClient(aiServerHost, aiServerPort);
             bufferSize = 1024;
             buffer = new byte[bufferSize];
-            return true;
         }
         catch (Exception e)
         {
             Debug.LogError("Failed to connect AI Server " + e);
-            return false;
         }
     }
 
@@ -72,7 +59,7 @@ public class AIClient : SingletonMono<AIClient>
             }
 
             // 유니티 클라이언트 리스너 등록 요청
-            Write64("1");
+            Write("1");
 
             if (GetResultCode() < 0)
             {
@@ -85,8 +72,7 @@ public class AIClient : SingletonMono<AIClient>
             // 서버에서 보내는 예측값 대기
             while (true)
             {
-                int datelen = ReadInt();
-                string date = Read(datelen);
+                string date = Read();
                 int prediction = ReadInt();
 
                 Debug.Log("예측값 : " + prediction);
@@ -117,38 +103,28 @@ public class AIClient : SingletonMono<AIClient>
         stream.Write(bytes, 0, bytes.Length);
     }
 
-    private void Write64(string value)
-    {
-        byte[] bytes = Encoding.UTF8.GetBytes(value.PadLeft(64));
-
-        stream.Write(bytes, 0, 64);
-    }
-
-    private string Read(int size = 0)
+    private string Read()
     {
         ClearBuffer();
         
-        if (size == 0)
-            stream.Read(buffer);
-        else
-            stream.Read(buffer, 0, size);
-
+        stream.Read(buffer);
         return Encoding.UTF8.GetString(buffer);
     }
 
     private int ReadInt()
     {
-        return int.Parse(Read(64));
+        return int.Parse(Read());
     }
 
     private float ReadFloat()
     {
-        return float.Parse(Read(64));
+        return float.Parse(Read());
     }
 
     private int GetResultCode()
     {
-        int result = ReadInt();
+        stream.Read(buffer);
+        int result = int.Parse(Encoding.UTF8.GetString(buffer));
 
         if (result < 0)
         {
