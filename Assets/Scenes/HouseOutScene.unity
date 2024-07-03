@@ -1289,9 +1289,9 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 61572897}
-        m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
-        m_MethodName: OffOutline
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OnGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1307,6 +1307,18 @@ MonoBehaviour:
       - m_Target: {fileID: 61572897}
         m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
         m_MethodName: OnOutline
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OffGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2374,9 +2386,9 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 126498505}
-        m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
-        m_MethodName: OffOutline
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OnGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2392,6 +2404,18 @@ MonoBehaviour:
       - m_Target: {fileID: 126498505}
         m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
         m_MethodName: OnOutline
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OffGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4141,9 +4165,9 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 198534278}
-        m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
-        m_MethodName: OffOutline
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OnGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4159,6 +4183,18 @@ MonoBehaviour:
       - m_Target: {fileID: 198534278}
         m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
         m_MethodName: OnOutline
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OffGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5427,7 +5463,7 @@ PrefabInstance:
     - target: {fileID: 4512768151715397069, guid: 149fa5a0191f0f446971d1e2b35d2802,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4512768151715397069, guid: 149fa5a0191f0f446971d1e2b35d2802,
         type: 3}
@@ -6315,7 +6351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &308494784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7216,18 +7252,6 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 342332415}
-        m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
-        m_MethodName: OffOutline
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 476154911}
         m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
         m_MethodName: OnGrab
@@ -7243,9 +7267,9 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 342332415}
-        m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
-        m_MethodName: OnOutline
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OffGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7255,9 +7279,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 476154911}
-        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
-        m_MethodName: OffGrab
+      - m_Target: {fileID: 342332415}
+        m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
+        m_MethodName: OnOutline
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8135,18 +8159,6 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 368054883}
-        m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
-        m_MethodName: OffOutline
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 476154911}
         m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
         m_MethodName: OnGrab
@@ -8646,7 +8658,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 389392914}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: SoketAttach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9393,9 +9405,9 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 415070643}
-        m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
-        m_MethodName: OffOutline
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OnGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9411,6 +9423,18 @@ MonoBehaviour:
       - m_Target: {fileID: 415070643}
         m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
         m_MethodName: OnOutline
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OffGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11871,9 +11895,9 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 526936925}
-        m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
-        m_MethodName: OffOutline
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OnGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11889,6 +11913,18 @@ MonoBehaviour:
       - m_Target: {fileID: 526936925}
         m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
         m_MethodName: OnOutline
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OffGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14352,7 +14388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 618006590}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: SoketAttach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14885,9 +14921,9 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 640885571}
-        m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
-        m_MethodName: OffOutline
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OnGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14903,6 +14939,18 @@ MonoBehaviour:
       - m_Target: {fileID: 640885571}
         m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
         m_MethodName: OnOutline
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OffGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15608,9 +15656,9 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 660323275}
-        m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
-        m_MethodName: OffOutline
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OnGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15626,6 +15674,18 @@ MonoBehaviour:
       - m_Target: {fileID: 660323275}
         m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
         m_MethodName: OnOutline
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OffGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15936,7 +15996,7 @@ GameObject:
   - component: {fileID: 680562784}
   - component: {fileID: 680562783}
   - component: {fileID: 680562786}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: SoilGenerate
   m_TagString: Farmland
   m_Icon: {fileID: 0}
@@ -17201,9 +17261,9 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 725960089}
-        m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
-        m_MethodName: OffOutline
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OnGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17219,6 +17279,18 @@ MonoBehaviour:
       - m_Target: {fileID: 725960089}
         m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
         m_MethodName: OnOutline
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OffGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19888,9 +19960,9 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 871464571}
-        m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
-        m_MethodName: OffOutline
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OnGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19906,6 +19978,18 @@ MonoBehaviour:
       - m_Target: {fileID: 871464571}
         m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
         m_MethodName: OnOutline
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OffGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22393,9 +22477,9 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 984824781}
-        m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
-        m_MethodName: OffOutline
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OnGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22411,6 +22495,18 @@ MonoBehaviour:
       - m_Target: {fileID: 984824781}
         m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
         m_MethodName: OnOutline
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OffGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23096,9 +23192,9 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1005811826}
-        m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
-        m_MethodName: OffOutline
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OnGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23114,6 +23210,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1005811826}
         m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
         m_MethodName: OnOutline
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OffGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25234,18 +25342,6 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1048618000}
-        m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
-        m_MethodName: OffOutline
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 476154911}
         m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
         m_MethodName: OnGrab
@@ -31569,9 +31665,9 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1112225996}
-        m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
-        m_MethodName: OffOutline
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OnGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -31587,6 +31683,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1112225996}
         m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
         m_MethodName: OnOutline
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OffGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -33937,9 +34045,9 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1213652291}
-        m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
-        m_MethodName: OffOutline
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OnGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -33955,6 +34063,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1213652291}
         m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
         m_MethodName: OnOutline
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OffGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -34516,7 +34636,7 @@ PrefabInstance:
     - target: {fileID: 4512768151715397069, guid: 149fa5a0191f0f446971d1e2b35d2802,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4512768151715397069, guid: 149fa5a0191f0f446971d1e2b35d2802,
         type: 3}
@@ -37988,7 +38108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1422458083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38578,7 +38698,7 @@ GameObject:
   - component: {fileID: 1449556884}
   - component: {fileID: 1449556886}
   - component: {fileID: 1449556885}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: soil_Soket_Fix
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39848,9 +39968,9 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1489422778}
-        m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
-        m_MethodName: OffOutline
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OnGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -39866,6 +39986,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1489422778}
         m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
         m_MethodName: OnOutline
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OffGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -40479,7 +40611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1522087875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41498,7 +41630,7 @@ GameObject:
   - component: {fileID: 1565030947}
   - component: {fileID: 1565030949}
   - component: {fileID: 1565030948}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: soil_Soket_Seedling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42171,18 +42303,6 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1167150321}
-        m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
-        m_MethodName: OffOutline
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 476154911}
         m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
         m_MethodName: OnGrab
@@ -50649,9 +50769,9 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1730014576}
-        m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
-        m_MethodName: OffOutline
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OnGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -50667,6 +50787,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1730014576}
         m_TargetAssemblyTypeName: OutlineControll, Assembly-CSharp
         m_MethodName: OnOutline
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 476154911}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: OffGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
